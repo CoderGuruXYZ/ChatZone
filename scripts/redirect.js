@@ -2,7 +2,7 @@ if(localStorage.loggedIn == null) {
     localStorage.setItem("loggedIn", JSON.stringify(false));
 }
 
-if(window.location.href == "login.html") {
+if(window.location.href.includes("login.html")) {
     if(JSON.parse(localStorage.loggedIn)) {
         window.location.href = "home.html";
     }
