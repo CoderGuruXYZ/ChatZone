@@ -40,11 +40,11 @@ document.querySelector(".confirmContact").addEventListener("click", function() {
         if(verif) {
             var entityObj = JSON.parse(localStorage.entity);
 
-            var check = firebase.database().ref().orderByKey().equalTo("contacts" + entityObj.id).once("value", function (snapshot) {
+            var check = firebase.database().ref().orderByKey().equalTo("contacts/" + entityObj.id).once("value", function (snapshot) {
                 if (snapshot.exists()) {
                     var conts;
 
-                    var dataRef = firebase.database().ref('contacts' + entityObj.id);
+                    var dataRef = firebase.database().ref('contacts/' + entityObj.id);
                     dataRef.on('value', (snapshot) => {
                         const data = snapshot.val();
                         conts = data;
