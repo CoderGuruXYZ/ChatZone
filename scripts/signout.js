@@ -11,6 +11,6 @@ document.getElementById("signoutBtn").addEventListener("click", function() {
     });
 
     window.setTimeout(function() {
-        window.location.href = "login.html" //?signout=true";
+        window.location.href = "login.html";
     }, 100);
 })

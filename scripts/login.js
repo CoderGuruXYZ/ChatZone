@@ -1,18 +1,3 @@
-// const queryString = window.location.search;
-
-// if (queryString.indexOf("?") > -1) {
-//     gapi.load('auth2', function() {
-//         gapi.auth2.init();
-//     });
-
-//     var auth2 = gapi.auth2.getAuthInstance();
-//     auth2.signOut().then(function () {
-//         localStorage.removeItem("entity");
-//     });
-
-//     window.location.href = "login.html";
-// }
-
 function onSignIn(googleUser) {
     var profile = googleUser.getBasicProfile();
 
@@ -28,9 +13,9 @@ function onSignIn(googleUser) {
 
     setData(entity);
 
-    // window.setTimeout(function () {
-    //     window.location.href = "home.html";
-    // }, 100);
+    window.setTimeout(function () {
+        window.location.href = "home.html";
+    }, 100);
 }
 
 function setData(entityObj) {
