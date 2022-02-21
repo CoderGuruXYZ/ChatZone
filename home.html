@@ -9,6 +9,7 @@
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <meta name="google-signin-client_id" content="632326632383-7m9idkmkv8teu7h26go04v1am1t2971n.apps.googleusercontent.com">
     <link rel='stylesheet' href='styles/style.css'>
+    <link rel='stylesheet' href='styles/navbar.css'>
     <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.15.1/css/all.css'
         integrity='sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp' crossorigin='anonymous'>
     <script src='https://kit.fontawesome.com/a2406e7df8.js' crossorigin='anonymous'></script>
@@ -21,10 +22,30 @@
 </head>
 
 <body>
-    <button id="signoutBtn">Sign Out</button>
+    <nav>
+        <div class="user">
+            <div class="userName">I Singh</div>
+            <div class="userImage"></div>
+        </div>
+        <div class="links">
+            <a href = "#" class="link">Messages <i class="fa-solid fa-message"></i></a>
+            <a href = "#" class="link">Groups <i class="fa-solid fa-users"></i></a>
+            <a href = "#" class="link">Settings <i class="fa-solid fa-gear"></i></a>
+        </div>
+        <div class="bottomNav">
+            <div class="signout">
+                <button id="signoutBtn">Sign Out</button>
+            </div>
+            <div class="collapse">
+                <div id="collapseBtn"><i class="fa-solid fa-circle-chevron-left"></i></div>
+            </div>
+        </div>
+    </nav>
 
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.5.1.min.js"></script>
     <script src='scripts/script.js' async defer></script>
     <script src='scripts/redirect.js' async defer></script>
+    <script src='scripts/navbar.js' async defer></script>
     <script src='scripts/init.js' async defer></script>
     <script src='scripts/signout.js' async defer></script>
 </body>

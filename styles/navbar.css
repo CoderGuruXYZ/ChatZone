@@ -1,0 +1,102 @@
+body {
+    justify-content: flex-start;
+}
+
+nav {
+    width: 15vw;
+    height: 100vh;
+
+    padding: 3vh;
+
+    background-color: rgb(30, 30, 30);
+}
+
+.user {
+    width: 100%;
+    height: 10vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    font-size: 20px;
+}
+
+.userImage {
+    background-image: url('https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.UvNeoKHseGwXV7foYTFsIQHaHa%26pid%3DApi&f=1');
+    background-size: cover;
+
+    width: 50px;
+    height: 50px;
+
+    border-radius: 100vw;
+}
+
+.userName {
+    font-size: 22px;
+}
+
+.links {
+    margin-top: 20px;
+}
+
+.link {
+    width: 100%;
+
+    font-size: 20px;
+
+    margin-bottom: 20px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    color: whitesmoke;
+
+    text-decoration: none;
+}
+
+.bottomNav {
+    position: absolute;
+
+    bottom: 3vh;
+}
+
+.signout, .collapse {
+    width: calc(15vw - 6vh);
+
+    display: flex;
+    justify-content: center;
+}
+
+#signoutBtn {
+    padding: 15px;
+
+    border: none;
+
+    outline: none;
+
+    background-color: rgb(110, 110, 110);
+
+    border-radius: 15px;
+
+    color: whitesmoke;
+
+    font-size: 14px;
+
+    cursor: pointer;
+}
+
+#collapseBtn {
+    font-size: 22px;
+
+    color: whitesmoke;
+
+    margin-top: 3vh;
+
+    cursor: pointer;
+}
+
+.collapsed {
+    display: none;
+}
