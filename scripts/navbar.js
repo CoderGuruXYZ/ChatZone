@@ -91,3 +91,4 @@ if (window.location.href.includes("home")) {
 var entity = JSON.parse(localStorage.entity);
 
 $(".userName").html(entity.name);
+document.querySelector(".userImage").style.backgroundImage = 'url(' + entity.image + ')';
