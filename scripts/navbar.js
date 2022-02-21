@@ -1,6 +1,12 @@
 var nav = document.querySelector("nav");
 nav.innerHTML = "";
 
+var title = document.createElement("div");
+title.classList.add("title");
+title.innerHTML = '<i class="fa-solid fa-comment"></i><div class="titleTextContainer">ChatZone</div>';
+
+nav.appendChild(title);
+
 var user = document.createElement("div");
 user.classList.add("user");
 
@@ -21,7 +27,7 @@ var links = document.createElement("div");
 links.classList.add("links");
 
 var names = ["Messages", "Groups", "Settings"];
-var hrefs = ["#", "#", "#"];
+var hrefs = ["messages.html", "#", "#"];
 var icons = ['<i class="fa-solid fa-message"></i>', '<i class="fa-solid fa-users"></i>', '<i class="fa-solid fa-gear"></i>']
 
 for (i = 0; i < names.length; i++) {
@@ -70,6 +76,8 @@ function collapseNav() {
     $(".collapse").toggleClass("collapsed");
     $("#signoutBtn").toggleClass("collapsed");
     $(".link").toggleClass("collapsed");
+    $(".titleTextContainer").toggleClass("collapsed");
+    $(".title").toggleClass("collapsed");
 
     if (document.getElementById("collapseBtn").innerHTML.includes("left")) {
         document.getElementById("collapseBtn").innerHTML = '<i class="fa-solid fa-circle-chevron-right"></i>';

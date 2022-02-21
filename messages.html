@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Home | ChatZone</title>
+    <meta name='description' content=''>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <meta name="google-signin-client_id" content="632326632383-7m9idkmkv8teu7h26go04v1am1t2971n.apps.googleusercontent.com">
+    <link rel='stylesheet' href='styles/style.css'>
+    <link rel='stylesheet' href='styles/navbar.css'>
+    <link rel='stylesheet' href='styles/messages.css'>
+    <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.15.1/css/all.css'
+        integrity='sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp' crossorigin='anonymous'>
+    <script src='https://kit.fontawesome.com/a2406e7df8.js' crossorigin='anonymous'></script>
+    <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-database.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+</head>
+
+<body>
+    <nav></nav>
+
+    <div class="dmWindow">
+        <div class="dms">
+            <div class="dmTitle">
+                <div class="dmTitleText">Private Messages</div> 
+                <div class="newDM">
+                    <i class="fa-solid fa-circle-plus"></i>
+                </div>
+            </div>
+            <div class="dmList">
+                <div class="dmItem">
+                    <div class="dmItemName">Friend Name</div>
+                    <div class="dmItemEmail">target@example.com</div>
+                </div>
+                <div class="dmItem">
+                    <div class="dmItemName">Friend Name</div>
+                    <div class="dmItemEmail">target@example.com</div>
+                </div>
+                <div class="dmItem">
+                    <div class="dmItemName">Friend Name</div>
+                    <div class="dmItemEmail">target@example.com</div>
+                </div>
+                <div class="dmItem">
+                    <div class="dmItemName">Friend Name</div>
+                    <div class="dmItemEmail">target@example.com</div>
+                </div>
+                <div class="dmItem">
+                    <div class="dmItemName">Friend Name</div>
+                    <div class="dmItemEmail">target@example.com</div>
+                </div>
+                <div class="dmItem">
+                    <div class="dmItemName">Friend Name</div>
+                    <div class="dmItemEmail">target@example.com</div>
+                </div>
+                <div class="dmItem">
+                    <div class="dmItemName">Friend Name</div>
+                    <div class="dmItemEmail">target@example.com</div>
+                </div>
+                <div class="dmItem">
+                    <div class="dmItemName">Friend Name</div>
+                    <div class="dmItemEmail">target@example.com</div>
+                </div>
+            </div>
+        </div>
+        <div class="chat">
+            <div class="topBar">
+                Friend Name
+            </div>
+            <div class="messages">
+                <!-- <div class="message">
+                    <div class="messageDetails">
+                        <div class="messageName">Name</div>
+                        <div class="messageImage" style="background-color: orange;"><i class="fa-solid fa-circle-user"></i>
+                        </div>
+                    </div>
+                    <div class="messageText">Hi</div>
+                </div> -->
+            </div>
+            <div class="chatBox">
+                <input type="text" id="userText" placeholder="Chat Here...">
+                <button class="sendBtn">
+                    <i class="fa-solid fa-paper-plane"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.5.1.min.js"></script>
+    <script src='scripts/script.js' async defer></script>
+    <script src='scripts/redirect.js' async defer></script>
+    <script src='scripts/navbar.js' async defer></script>
+    <script src='scripts/init.js' async defer></script>
+</body>
+
+</html>
