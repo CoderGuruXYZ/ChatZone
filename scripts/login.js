@@ -5,14 +5,7 @@ if (queryString.indexOf("?") > -1) {
 
     var check = urlParams.get("signout");
 
-    var auth2;
-
-    gapi.load('auth2', function(){
-        auth2 = gapi.auth2.init({
-            client_id: "632326632383-7m9idkmkv8teu7h26go04v1am1t2971n.apps.googleusercontent.com"
-        });
-    });  
-
+    var auth2 = gapi.auth2.getAuthInstance();
     auth2.signOut() //.then(function () {
     //     localStorage.removeItem("entity");
 
