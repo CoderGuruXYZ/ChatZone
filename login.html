@@ -9,6 +9,7 @@
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <meta name="google-signin-client_id" content="632326632383-7m9idkmkv8teu7h26go04v1am1t2971n.apps.googleusercontent.com">
     <link rel='stylesheet' href='styles/style.css'>
+    <link rel='stylesheet' href='styles/login.css'>
     <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.15.1/css/all.css'
         integrity='sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp' crossorigin='anonymous'>
     <script src='https://kit.fontawesome.com/a2406e7df8.js' crossorigin='anonymous'></script>
@@ -21,7 +22,20 @@
 </head>
 
 <body>
-    <div class="g-signin2" data-onsuccess="onSignIn"></div>
+    <div class="loginBox">
+        <div class="title">
+            <i class="fa-solid fa-comment"></i>
+            <div class="titleTextContainer">ChatZone</div>
+        </div>
+        <div class="g-signin2" 
+            data-onsuccess="onSignIn" 
+            data-width = "280"
+            data-height = "60"
+            data-longtitle = "true"
+            data-theme = "dark"
+            style = "border-radius: 10px;">
+        </div>
+    </div>
 
     <script src='scripts/script.js' async defer></script>
     <script src='scripts/redirect.js' async defer></script>
