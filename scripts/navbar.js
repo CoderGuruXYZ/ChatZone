@@ -90,7 +90,7 @@ document.getElementById("collapseBtn").onclick = function () {
     collapseNav();
 }
 
-if (window.location.href.includes("home")) {
+if (window.location.href.includes("home") || window.location.href.includes("messages")) {
     var signout = document.createElement("script");
     signout.src = "scripts/signout.js";
     document.body.appendChild(signout);
