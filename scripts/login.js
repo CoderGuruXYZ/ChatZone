@@ -11,9 +11,6 @@ if (queryString.indexOf("?") > -1) {
     }
 }
 
-var auth2 = gapi.auth2.getAuthInstance();
-auth2.signOut();
-
 function onSignIn(googleUser) {
     var profile = googleUser.getBasicProfile();
 
