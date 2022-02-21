@@ -7,7 +7,11 @@ if (queryString.indexOf("?") > -1) {
 
     if (JSON.parse(check)) {
         var auth2 = gapi.auth2.getAuthInstance();
-        auth2.signOut();
+        auth2.signOut().then(function () {
+            localStorage.removeItem("entity");
+
+            window.location.href = "login.html";
+        });
     }
 }
 
@@ -26,9 +30,9 @@ function onSignIn(googleUser) {
 
     setData(entity);
 
-    window.setTimeout(function () {
-        window.location.href = "home.html";
-    }, 100);
+    // window.setTimeout(function () {
+    //     window.location.href = "home.html";
+    // }, 100);
 }
 
 function setData(entityObj) {
