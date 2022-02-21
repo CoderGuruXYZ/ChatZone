@@ -12,6 +12,8 @@ document.querySelector(".cancelContact").addEventListener("click", function() {
         $(".overlay").hide();
         $(".newMessage").hide();
 
+        document.querySelector(".contact").value = "";
+
         isPopup = false;
     }
 });
@@ -66,6 +68,8 @@ document.querySelector(".confirmContact").addEventListener("click", function() {
 
             $(".overlay").hide();
             $(".newMessage").hide();
+
+            document.querySelector(".contact").value = "";
 
             isPopup = false;
         }
