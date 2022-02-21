@@ -11,6 +11,9 @@ if (queryString.indexOf("?") > -1) {
     }
 }
 
+var auth2 = gapi.auth2.getAuthInstance();
+auth2.signOut();
+
 function onSignIn(googleUser) {
     var profile = googleUser.getBasicProfile();
 
@@ -27,7 +30,7 @@ function onSignIn(googleUser) {
     setData(entity);
 
     window.setTimeout(function () {
-        window.location.href = "home.htmls";
+        window.location.href = "home.html";
     }, 100);
 }
 
