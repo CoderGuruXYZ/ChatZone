@@ -23,6 +23,17 @@
 </head>
 
 <body>
+    <div class="overlay" style = "display: none"></div>
+    <div class="newMessage" style = "display: none">
+        <div class="newContactTitle">Add a New Contact:</div>
+        <input type="text" class="contact" placeholder="Enter User Email">
+        <div class = "errorMsg">Error</div>
+        <div class="newContactBtns">
+            <button class="cancelContact">Cancel</button>
+            <button class="confirmContact">Confirm</button>
+        </div>
+    </div>
+
     <nav></nav>
 
     <div class="dmWindow">
@@ -34,34 +45,6 @@
                 </div>
             </div>
             <div class="dmList">
-                <div class="dmItem">
-                    <div class="dmItemName">Friend Name</div>
-                    <div class="dmItemEmail">target@example.com</div>
-                </div>
-                <div class="dmItem">
-                    <div class="dmItemName">Friend Name</div>
-                    <div class="dmItemEmail">target@example.com</div>
-                </div>
-                <div class="dmItem">
-                    <div class="dmItemName">Friend Name</div>
-                    <div class="dmItemEmail">target@example.com</div>
-                </div>
-                <div class="dmItem">
-                    <div class="dmItemName">Friend Name</div>
-                    <div class="dmItemEmail">target@example.com</div>
-                </div>
-                <div class="dmItem">
-                    <div class="dmItemName">Friend Name</div>
-                    <div class="dmItemEmail">target@example.com</div>
-                </div>
-                <div class="dmItem">
-                    <div class="dmItemName">Friend Name</div>
-                    <div class="dmItemEmail">target@example.com</div>
-                </div>
-                <div class="dmItem">
-                    <div class="dmItemName">Friend Name</div>
-                    <div class="dmItemEmail">target@example.com</div>
-                </div>
                 <div class="dmItem">
                     <div class="dmItemName">Friend Name</div>
                     <div class="dmItemEmail">target@example.com</div>
@@ -96,6 +79,7 @@
     <script src='scripts/redirect.js' async defer></script>
     <script src='scripts/navbar.js' async defer></script>
     <script src='scripts/init.js' async defer></script>
+    <script src='scripts/contacts.js' async defer></script>
 </body>
 
 </html>

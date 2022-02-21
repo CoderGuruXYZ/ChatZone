@@ -15,7 +15,7 @@
 }
 
 .dms {
-    width: 25%;
+    width: 30%;
     height: 100%;
 
     padding: 3vh;
@@ -107,7 +107,7 @@
 }
 
 .chat {
-    width: calc(75% - 3vh);
+    width: calc(70% - 3vh);
     height: 100%;
 
     border-radius: 20px;
@@ -256,4 +256,103 @@
     color: whitesmoke;
 
     cursor: pointer;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: block;
+    z-index: 900;
+}
+
+.newMessage {
+    position: absolute;
+
+    width: 35vw;
+
+    padding: 20px;
+
+    border-radius: 20px;
+
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 901;
+
+    background-color: rgb(40, 40, 40);
+
+    justify-content: center;
+}
+
+.newContactTitle {
+    font-size: 26px;
+
+    font-weight: bold;
+
+    text-align: center;
+
+    margin-bottom: 20px;
+}
+
+.contact {
+    width: 80%;
+
+    margin-left: 10%;
+
+    padding: 10px;
+
+    border: none;
+
+    outline: none; 
+
+    background-color: rgb(50, 50, 50);
+
+    font-size: 18px;
+
+    color: whitesmoke;
+
+    border-radius: 15px;
+}
+
+.newContactBtns {
+    margin-top: 20px;
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.cancelContact, .confirmContact {
+    padding: 10px;
+
+    border: none;
+
+    outline: none; 
+
+    background-color: rgb(100, 100, 100);
+
+    color: whitesmoke;
+
+    font-size: 16px;
+
+    border-radius: 15px;
+
+    cursor: pointer;
+}
+
+.errorMsg {
+    color: rgb(200, 0, 0);
+
+    font-size: 15px;
+
+    margin-left: 10%;
+
+    margin-top: 5px;
+
+    display: none;
 }
