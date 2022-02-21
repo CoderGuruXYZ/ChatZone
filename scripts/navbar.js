@@ -64,17 +64,11 @@ nav.appendChild(bottomNav);
 
 function collapseNav() {
     $(".userName").toggleClass("collapsed");
-
     $("nav").toggleClass("collapsed");
-
     $(".linkTextContainer").toggleClass("collapsed");
-
     $(".signout").toggleClass("collapsed");
-
     $(".collapse").toggleClass("collapsed");
-
     $("#signoutBtn").toggleClass("collapsed");
-
     $(".link").toggleClass("collapsed");
 
     if (document.getElementById("collapseBtn").innerHTML.includes("left")) {
@@ -95,3 +89,5 @@ if (window.location.href.includes("home")) {
 }
 
 var entity = JSON.parse(localStorage.entity);
+
+$(".userName").html(entity.name);
