@@ -1,6 +1,19 @@
+const queryString = window.location.search;
+
+if (queryString.indexOf("?") > -1) {
+    const urlParams = new URLSearchParams(queryString);
+
+    var check = urlParams.get("signout");
+
+    if (JSON.parse(check)) {
+        var auth2 = gapi.auth2.getAuthInstance();
+        auth2.signOut();
+    }
+}
+
 function onSignIn(googleUser) {
     var profile = googleUser.getBasicProfile();
-    
+
     var entity = {
         id: profile.getId(),
         name: profile.getName(),
@@ -13,8 +26,8 @@ function onSignIn(googleUser) {
 
     setData(entity);
 
-    window.setTimeout(function() {
-        window.location.href = "home.html";
+    window.setTimeout(function () {
+        window.location.href = "home.htmls";
     }, 100);
 }
 
