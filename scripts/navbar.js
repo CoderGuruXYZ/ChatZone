@@ -24,11 +24,11 @@ var names = ["Messages", "Groups", "Settings"];
 var hrefs = ["#", "#", "#"];
 var icons = ['<i class="fa-solid fa-message"></i>', '<i class="fa-solid fa-users"></i>', '<i class="fa-solid fa-gear"></i>']
 
-for(i = 0; i < names.length; i++) {
+for (i = 0; i < names.length; i++) {
     var link = document.createElement("a");
     link.classList.add("link");
     link.href = hrefs[i];
-    link.innerHTML = names[i] + " " + icons[i];
+    link.innerHTML = '<div class = "linkTextContainer">' + names[i]  + '</div> ' + icons[i];
 
     links.appendChild(link);
 }
@@ -65,13 +65,33 @@ nav.appendChild(bottomNav);
 function collapseNav() {
     $(".userName").toggleClass("collapsed");
 
-    if(document.getElementById("collapseBtn").innerHTML.includes("left")) {
+    $("nav").toggleClass("collapsed");
+
+    $(".linkTextContainer").toggleClass("collapsed");
+
+    $(".signout").toggleClass("collapsed");
+
+    $(".collapse").toggleClass("collapsed");
+
+    $("#signoutBtn").toggleClass("collapsed");
+
+    $(".link").toggleClass("collapsed");
+
+    if (document.getElementById("collapseBtn").innerHTML.includes("left")) {
         document.getElementById("collapseBtn").innerHTML = '<i class="fa-solid fa-circle-chevron-right"></i>';
     } else {
         document.getElementById("collapseBtn").innerHTML = '<i class="fa-solid fa-circle-chevron-left"></i>';
     }
 }
 
-document.getElementById("collapseBtn").onclick = function() {
+document.getElementById("collapseBtn").onclick = function () {
     collapseNav();
 }
+
+if (window.location.href.includes("home")) {
+    var signout = document.createElement("script");
+    signout.src = "scripts/signout.js";
+    document.body.appendChild(signout);
+}
+
+var entity = JSON.parse(localStorage.entity);

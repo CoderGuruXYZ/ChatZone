@@ -3,7 +3,7 @@ body {
 }
 
 nav {
-    width: 15vw;
+    width: 250px;
     height: 100vh;
 
     padding: 3vh;
@@ -63,7 +63,7 @@ nav {
 }
 
 .signout, .collapse {
-    width: calc(15vw - 6vh);
+    width: calc(250px - 6vh);
 
     display: flex;
     justify-content: center;
@@ -99,4 +99,31 @@ nav {
 
 .collapsed {
     display: none;
+}
+
+nav.collapsed {
+    display: block;
+
+    width: fit-content;
+}
+
+.signout.collapsed, .collapse.collapsed {
+    width: 80%;
+
+    display: flex;
+}
+
+#signoutBtn.collapsed {
+    padding: 10px;
+
+    display: block;
+
+    font-size: 12px;
+}
+
+.link.collapsed {
+    display: flex;
+    justify-content: center;
+
+    font-size: 26px;
 }
