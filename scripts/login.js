@@ -13,7 +13,9 @@ function onSignIn(googleUser) {
 
     setData(entity);
 
-    window.location.href = "home.html";
+    window.setTimeout(function() {
+        window.location.href = "home.html";
+    }, 100);
 }
 
 function setData(entityObj) {
