@@ -10,4 +10,17 @@ function onSignIn(googleUser) {
 
     localStorage.setItem("entity", JSON.stringify(entity));
     localStorage.setItem("loggedIn", JSON.stringify(true));
+
+    setData(entity);
+
+    window.location.href = "home.html";
+}
+
+function setData(entityObj) {
+    firebase.database().ref('users/' + entityObj.id).set({
+        id: entityObj.id,
+        name: entityObj.name,
+        image: entityObj.image,
+        email: entityObj.email,
+    });
 }

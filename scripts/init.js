@@ -1,10 +1,10 @@
 const firebaseConfig = {
-    apiKey: "AIzaSyAkvxXnTTPEaL02E4yLPSCIN4nqjpEGs-M",
-    authDomain: "chatzone-e027a.firebaseapp.com",
-    projectId: "chatzone-e027a",
-    storageBucket: "chatzone-e027a.appspot.com",
-    messagingSenderId: "618566330402",
-    appId: "1:618566330402:web:116af9aacdf4ad308cc27b"
+    apiKey: "AIzaSyCpJKBYr3gFkRfccnY9DymrU14P__-k9Xc",
+    authDomain: "chatzone-342009.firebaseapp.com",
+    projectId: "chatzone-342009",
+    storageBucket: "chatzone-342009.appspot.com",
+    messagingSenderId: "632326632383",
+    appId: "1:632326632383:web:f3ccd9cb464123a859e70a"
 };
 
 firebase.initializeApp(firebaseConfig);
