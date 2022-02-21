@@ -7,11 +7,11 @@ if (queryString.indexOf("?") > -1) {
 
     if (JSON.parse(check)) {
         var auth2 = gapi.auth2.getAuthInstance();
-        auth2.signOut().then(function () {
-            localStorage.removeItem("entity");
+        auth2.signOut()//.then(function () {
+        //     localStorage.removeItem("entity");
 
-            window.location.href = "login.html";
-        });
+        //     window.location.href = "login.html";
+        // });
     }
 }
 
