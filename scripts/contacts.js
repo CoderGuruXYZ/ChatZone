@@ -53,6 +53,7 @@ function addNewContact() {
         var users, neededID;
 
         var dataRef = firebase.database().ref('users');
+        console.log(dataRef);
         dataRef.on('value', (snapshot) => {
             const data = snapshot.val();
             users = data;
@@ -61,6 +62,8 @@ function addNewContact() {
         console.log(users);
 
         var usersArray = Object.keys(users);
+
+        log(usersArray)
 
         for (i = 0; i < usersArray.length; i++) {
             if (users[i].email == test) {
