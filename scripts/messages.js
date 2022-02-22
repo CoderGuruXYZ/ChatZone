@@ -13,8 +13,6 @@ dataRef2.on('value', (snapshot) => {
     const data = snapshot.val();
     allContacts = data;
 
-    console.log(allContacts);
-
     if (allContacts != null) {
         var tempContact = document.querySelector(".dmItem");
 
@@ -27,7 +25,6 @@ dataRef2.on('value', (snapshot) => {
         var allItems = document.querySelectorAll(".dmItem");
 
         for (i = 0; i < allItems.length; i++) {
-            console.log(allItems[i]);
             allItems[i].addEventListener("click", function () {
                 openChat(this.id);
             });

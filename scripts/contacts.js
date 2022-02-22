@@ -199,8 +199,6 @@ function addNewContact() {
 
             isPopup = false;
 
-            loadContacts();
-
             window.location.reload();
         }
     }
