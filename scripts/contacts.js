@@ -183,7 +183,7 @@ function addNewContact() {
                 }
             });
 
-            firebase.database().ref('messages/' + (parseInt(entityObj.id.split(0, 15)) + parseInt(neededID.split(0, 15))).toString()).set({
+            firebase.database().ref('messages/' + (parseInt(entityObj.id.slice(0, 15)) + parseInt(neededID.slice(0, 15))).toString()).set({
                 messages: ["Hi!"],
                 images: [entityObj.image],
                 names: [entityObj.name],

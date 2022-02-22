@@ -16,7 +16,7 @@ dataRef2.on('value', (snapshot) => {
     if (allContacts != null) {
         var tempContact = document.querySelector(".dmItem");
 
-        if (typeof (tempContact) == "undefined" || typeof (tempContact) == null) {
+        if (typeof(tempContact) == "undefined" || typeof(tempContact) == null) {
             $(".chat").hide();
         } else {
             openChat(users[allContacts[entityObj.id].contacts[0]].id)
