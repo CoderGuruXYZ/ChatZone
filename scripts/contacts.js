@@ -35,6 +35,8 @@ dataRef.on('value', (snapshot) => {
     users = data;
 });
 
+var conts, conts2;
+
 function addNewContact() {
     if (isPopup) {
         var test = document.querySelector(".contact").value;
