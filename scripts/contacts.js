@@ -96,11 +96,11 @@ function addNewContact() {
                 if (snapshot.exists()) {
                     var dataRef = firebase.database().ref('contacts/' + entityObj.id);
                     dataRef.on('value', (snapshot) => {
-                        const data = snapshot.val();
+                        const data = snapshot.val().contacts;
                         conts = data;
                     });
 
-                    var personContacts = Object.values(conts.contacts);
+                    var personContacts = Object.values(conts);
 
                     personContacts.push(test);
 
@@ -127,13 +127,13 @@ function addNewContact() {
                 if (snapshot.exists()) {
                     var dataRef2 = firebase.database().ref('contacts/' + neededID.toString());
                     dataRef2.on('value', (snapshot) => {
-                        const data = snapshot.val();
+                        const data = snapshot.val().contacts;
                         conts2 = data;
                     });
 
                     console.log(conts2);
 
-                    var personContacts = Object.values(conts2.contacts);
+                    var personContacts = Object.values(conts2);
 
                     personContacts.push(targetEmail);
 
