@@ -28,6 +28,13 @@ window.onkeypress = function (event) {
     }
 };
 
+var users;
+var dataRef = firebase.database().ref('users');
+console.log(dataRef);
+dataRef.on('value', (snapshot) => {
+    const data = snapshot.val();
+    users = data;
+});
 
 function addNewContact() {
     if (isPopup) {
@@ -50,14 +57,7 @@ function addNewContact() {
 
         var verif = false;
 
-        var users, neededID;
-
-        var dataRef = firebase.database().ref('users');
-        console.log(dataRef);
-        dataRef.on('value', (snapshot) => {
-            const data = snapshot.val();
-            users = data;
-        });
+        var neededID;
 
         var usersArray = Object.keys(users);
 
@@ -75,7 +75,7 @@ function addNewContact() {
                     const data = snapshot.val();
                     neededID = data;
                 });
-                
+
                 verif = true;
 
                 break;
@@ -84,7 +84,7 @@ function addNewContact() {
 
         console.log(neededID);
 
-        if(!verif) {
+        if (!verif) {
             document.querySelector(".errorMsg").innerHTML = "Address Not Registered";
             $(".errorMsg").show();
         }
@@ -117,6 +117,14 @@ function addNewContact() {
                 }
             });
 
+            var targetEmail;
+
+            var emailRef3 = firebase.database().ref('users/' + entityObj.id + '/email');
+            emailRef3.on('value', (snapshot) => {
+                const data = snapshot.val();
+                targetEmail = data;
+            });
+
             var check2 = firebase.database().ref("contacts/" + neededID);
             check2.once("value", function (snapshot) {
                 if (snapshot.exists()) {
@@ -129,14 +137,6 @@ function addNewContact() {
                     });
 
                     var personContacts = Object.values(conts.contacts);
-
-                    var targetEmail;
-
-                    var emailRef3 = firebase.database().ref('users/' + entityObj.id + '/email');
-                    emailRef3.on('value', (snapshot) => {
-                        const data = snapshot.val();
-                        targetEmail = data;
-                    });
 
                     personContacts.push(targetEmail);
 
