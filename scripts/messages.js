@@ -33,5 +33,6 @@ dataRef2.on('value', (snapshot) => {
 });
 
 function openChat(targetID) {
+    $(".chat").show();
     $(".topBar").html(users[targetID].name);
 }
