@@ -32,4 +32,8 @@ if(window.location.href.includes("messages")) {
     var contactsJS = document.createElement("script");
     contactsJS.src = "scripts/contacts.js";
     document.body.appendChild(contactsJS);
+
+    var messagesJS = document.createElement("script");
+    messagesJS.src = "scripts/messages.js";
+    document.body.appendChild(messagesJS);
 }
