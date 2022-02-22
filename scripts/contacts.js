@@ -45,6 +45,8 @@ dataRef2.on('value', (snapshot) => {
 
 let contactVar, contactVar2;
 
+loadContacts();
+
 function addNewContact() {
     if (isPopup) {
         var test = document.querySelector(".contact").value;
@@ -163,6 +165,47 @@ function addNewContact() {
             document.querySelector(".contact").value = "";
 
             isPopup = false;
+
+            loadContacts();
         }
     }
+}
+
+function loadContacts() {
+    function createContact(name, email) {
+        var dmItem = document.createElement("div");
+        dmItem.classList.add("dmItem");
+
+        var dmItemName = document.createElement("div");
+        dmItemName.classList.add("dmItemName");
+        dmItemName.innerHTML = name;
+
+        dmItem.appendChild(dmItemName);
+
+        var dmItemEmail = document.createElement("div");
+        dmItemEmail.classList.add("dmItemEmail");
+        dmItemEmail.innerHTML = email;
+
+        dmItem.appendChild(dmItemEmail);
+
+        return dmItem;
+    }
+
+    var entityObj = JSON.parse(localStorage.entity);
+
+    var check = firebase.database().ref("contacts/" + entityObj.id.toString());
+    check.once("value", function (snapshot) {
+        if (snapshot.exists()) {
+            contactVar = allContacts[entityObj.id].contacts;
+
+            var personContacts = contactVar;
+
+            for(i = 0; i < personContacts.length; i++) {
+                var tempName = users[personContacts[i]].name;
+                var tempEmail = users[personContacts[i]].email;
+
+                document.querySelector(".dmList").appendChild(createContact(tempName, tempEmail));
+            }
+        }
+    });
 }
