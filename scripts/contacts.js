@@ -58,6 +58,8 @@ function addNewContact() {
             users = data;
         });
 
+        console.log(users);
+
         var usersArray = Object.keys(users);
 
         for (i = 0; i < usersArray.length; i++) {
