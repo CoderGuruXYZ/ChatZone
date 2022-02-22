@@ -13,6 +13,9 @@ dataRef2.once('value', (snapshot) => {
     const data = snapshot.val();
     allContacts = data;
 
+    var tempContact = document.querySelector(".dmItem");e
+    
+
     if(typeof(tempContact) == "undefined" || typeof(tempContact) == null) {
         $(".chat").hide();
     } else {
@@ -27,8 +30,6 @@ dataRef2.once('value', (snapshot) => {
         });
     }
 });
-
-var tempContact = document.querySelector(".dmItem");
 
 function openChat(targetID) {
     $(".topBar").html(users[targetID].name);
