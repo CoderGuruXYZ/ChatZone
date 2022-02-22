@@ -10,20 +10,26 @@ var dataRef2 = firebase.database().ref('contacts');
 dataRef2.on('value', (snapshot) => {
     const data = snapshot.val();
     allContacts = data;
+
+    if(typeof(tempContact) == "undefined" || typeof(tempContact) == null) {
+        $(".chat").hide();
+    } else {
+        openChat(users[allContacts[entityObj.id].contacts[0]].id)
+    }
 });
 
 var entityObj = JSON.parse(localStorage.entity);
 
 var tempContact = document.querySelector(".dmItem");
 
-if(typeof(tempContact) == "undefined" || typeof(tempContact) == null) {
-    $(".chat").hide();
-} else {
-    openChat(users[allContacts[entityObj.id].contacts[i]].id)
-}
+if(allContacts != null) {
+    var allItems = document.querySelectorAll(".dmItem");
 
-document.querySelectorAll(".dmItem").onclick = function() {
-    
+    for(i = 0; i < allItems.length; i++) {
+        allItems[i].addEventListener("click", function() {
+            openChat(this.id);
+        });
+    }
 }
 
 function openChat(targetID) {

@@ -199,9 +199,10 @@ function addNewContact() {
 loadContacts();
 
 function loadContacts() {
-    function createContact(name, email) {
+    function createContact(name, email, id) {
         var dmItem = document.createElement("div");
         dmItem.classList.add("dmItem");
+        dmItem.id = id;
 
         var dmItemName = document.createElement("div");
         dmItemName.classList.add("dmItemName");
@@ -237,8 +238,9 @@ function loadContacts() {
             for (i = 0; i < personContacts.length; i++) {
                 var tempName = users[personContacts[i]].name;
                 var tempEmail = users[personContacts[i]].email;
+                var tempID = users[personContacts[i]].id;
 
-                document.querySelector(".dmList").appendChild(createContact(tempName, tempEmail));
+                document.querySelector(".dmList").appendChild(createContact(tempName, tempEmail, tempID));
             }
         }
     });
