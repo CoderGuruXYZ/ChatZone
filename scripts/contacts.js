@@ -63,7 +63,7 @@ function addNewContact() {
 
         var usersArray = Object.keys(users);
 
-        log(usersArray)
+        console.log(usersArray)
 
         for (i = 0; i < usersArray.length; i++) {
             if (users[i].email == test) {
