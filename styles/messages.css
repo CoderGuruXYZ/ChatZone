@@ -15,7 +15,7 @@
 }
 
 .dms {
-    width: 30%;
+    width: 35%;
     height: 100%;
 
     padding: 3vh;
@@ -107,7 +107,7 @@
 }
 
 .chat {
-    width: calc(70% - 3vh);
+    width: calc(65% - 3vh);
     height: 100%;
 
     border-radius: 20px;
