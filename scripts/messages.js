@@ -28,9 +28,9 @@ dataRef2.on('value', (snapshot) => {
 
         for (i = 0; i < allItems.length; i++) {
             console.log(allItems[i]);
-            allItems[i].onclick = function () {
-                openChat(this.id);
-            };
+            allItems[i].addEventListener("click", function () {
+                openChat(allItems[i].id);
+            });
         }
     }
 });
