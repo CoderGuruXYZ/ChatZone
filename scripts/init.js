@@ -27,3 +27,9 @@ firebase.initializeApp(firebaseConfig);
 
 //     localStorage.setItem("userName", userName);
 // }
+
+if(window.location.href.includes("messages")) {
+    var contactsJS = document.createElement("script");
+    contactsJS.src = "scripts/contacts.js";
+    document.body.appendChild(contactsJS);
+}
