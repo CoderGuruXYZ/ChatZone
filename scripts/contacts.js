@@ -128,6 +128,7 @@ function addNewContact() {
                     var dataRef2 = firebase.database().ref('contacts/' + neededID.toString());
                     dataRef2.on('value', (snapshot) => {
                         const data = snapshot.val().contacts;
+                        console.log(data)
                         conts2 = data;
                     });
 
