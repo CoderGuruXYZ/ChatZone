@@ -124,6 +124,13 @@ function addNewContact() {
             var check2 = firebase.database().ref("contacts/" + neededID);
             check2.once("value", function (snapshot) {
                 if (snapshot.exists()) {
+                    var conts2;
+                    var dataRef2 = firebase.database().ref('contacts/' + neededID);
+                    dataRef2.on('value', (snapshot) => {
+                        const data = snapshot.val();
+                        conts2 = data;
+                    });
+
                     var personContacts = Object.values(conts2.contacts);
 
                     personContacts.push(targetEmail);
