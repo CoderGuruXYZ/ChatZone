@@ -29,7 +29,7 @@ dataRef2.on('value', (snapshot) => {
         for (i = 0; i < allItems.length; i++) {
             console.log(allItems[i]);
             allItems[i].addEventListener("click", function () {
-                openChat(allItems[i].id);
+                openChat(this.id);
             });
         }
     }
