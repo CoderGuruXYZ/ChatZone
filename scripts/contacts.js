@@ -45,8 +45,6 @@ dataRef2.on('value', (snapshot) => {
 
 let contactVar, contactVar2;
 
-loadContacts();
-
 function addNewContact() {
     if (isPopup) {
         var test = document.querySelector(".contact").value;
@@ -171,6 +169,8 @@ function addNewContact() {
     }
 }
 
+loadContacts();
+
 function loadContacts() {
     function createContact(name, email) {
         var dmItem = document.createElement("div");
@@ -191,16 +191,23 @@ function loadContacts() {
         return dmItem;
     }
 
+    document.querySelector(".dmList").innerHTML = "";
+
     var entityObj = JSON.parse(localStorage.entity);
 
     var check = firebase.database().ref("contacts/" + entityObj.id.toString());
     check.once("value", function (snapshot) {
         if (snapshot.exists()) {
-            contactVar = allContacts[entityObj.id].contacts;
+            var tempVar;
 
-            var personContacts = contactVar;
+            var dataRef2 = firebase.database().ref('contacts/' + entityObj.id.toString());
+            dataRef2.on('value', (snapshot) => {
+                tempVar = snapshot.val().contacts;
+            });
 
-            for(i = 0; i < personContacts.length; i++) {
+            var personContacts = tempVar;
+
+            for (i = 0; i < personContacts.length; i++) {
                 var tempName = users[personContacts[i]].name;
                 var tempEmail = users[personContacts[i]].email;
 
