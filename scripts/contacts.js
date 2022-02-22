@@ -101,7 +101,7 @@ function addNewContact() {
 
             var targetID2;
 
-            var emailRef25 = firebase.database().ref('users/' + entityObj.id + '/if');
+            var emailRef25 = firebase.database().ref('users/' + entityObj.id + '/id');
             emailRef25.on('value', (snapshot) => {
                 const data = snapshot.val();
                 targetID2 = data;
@@ -128,7 +128,7 @@ function addNewContact() {
 
             var targetID;
 
-            var emailRef3 = firebase.database().ref('users/' + entityObj.id + '/if');
+            var emailRef3 = firebase.database().ref('users/' + entityObj.id + '/id');
             emailRef3.on('value', (snapshot) => {
                 const data = snapshot.val();
                 targetID = data;
