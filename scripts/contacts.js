@@ -102,7 +102,6 @@ function addNewContact() {
             var check = firebase.database().ref("contacts/" + entityObj.id.toString());
             check.once("value", function (snapshot) {
                 if (snapshot.exists()) {
-                    console.log(allContacts);
                     contactVar = allContacts[entityObj.id].contacts;
 
                     var personContacts = contactVar;
