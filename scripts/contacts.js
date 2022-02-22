@@ -11,6 +11,7 @@ document.querySelector(".cancelContact").addEventListener("click", function () {
     if (isPopup) {
         $(".overlay").hide();
         $(".newMessage").hide();
+        $(".errorMsg").hide();
 
         document.querySelector(".contact").value = "";
 
@@ -152,6 +153,7 @@ function addNewContact() {
 
             $(".overlay").hide();
             $(".newMessage").hide();
+            $(".errorMsg").hide();
 
             document.querySelector(".contact").value = "";
 
