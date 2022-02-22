@@ -128,7 +128,7 @@ function addNewContact() {
 
             var targetID;
 
-            var emailRef3 = firebase.database().ref('users/' + entityObj.id + '/id');
+            var emailRef3 = firebase.database().ref('users/' + neededID + '/id');
             emailRef3.on('value', (snapshot) => {
                 const data = snapshot.val();
                 targetID = data;
