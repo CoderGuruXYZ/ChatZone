@@ -99,6 +99,14 @@ function addNewContact() {
         if (verif) {
             var entityObj = JSON.parse(localStorage.entity);
 
+            var targetID2;
+
+            var emailRef25 = firebase.database().ref('users/' + entityObj.id + '/if');
+            emailRef25.on('value', (snapshot) => {
+                const data = snapshot.val();
+                targetID2 = data;
+            });
+
             var check = firebase.database().ref("contacts/" + entityObj.id.toString());
             check.once("value", function (snapshot) {
                 if (snapshot.exists()) {
@@ -106,24 +114,24 @@ function addNewContact() {
 
                     var personContacts = contactVar;
 
-                    personContacts.push(test);
+                    personContacts.push(targetID2);
 
                     firebase.database().ref('contacts/' + entityObj.id).set({
                         contacts: personContacts,
                     });
                 } else {
                     firebase.database().ref('contacts/' + entityObj.id).set({
-                        contacts: [test],
+                        contacts: [targetID2],
                     });
                 }
             });
 
-            var targetEmail;
+            var targetID;
 
-            var emailRef3 = firebase.database().ref('users/' + entityObj.id + '/email');
+            var emailRef3 = firebase.database().ref('users/' + entityObj.id + '/if');
             emailRef3.on('value', (snapshot) => {
                 const data = snapshot.val();
-                targetEmail = data;
+                targetID = data;
             });
 
             var check2 = firebase.database().ref("contacts/" + neededID);
@@ -136,14 +144,14 @@ function addNewContact() {
 
                     var personContacts = contactVar2;
 
-                    personContacts.push(targetEmail);
+                    personContacts.push(targetID);
 
                     firebase.database().ref('contacts/' + neededID).set({
                         contacts: personContacts,
                     });
                 } else {
                     firebase.database().ref('contacts/' + neededID).set({
-                        contacts: [targetEmail],
+                        contacts: [targetID],
                     });
                 }
             });
