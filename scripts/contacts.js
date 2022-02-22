@@ -183,6 +183,14 @@ function addNewContact() {
                 }
             });
 
+            firebase.database().ref('messages/' + (parseInt(entityObj.id) + parseInt(neededID).toString())).set({
+                messages: ["Hi!"],
+                images: [entityObj.image],
+                names: [entityObj.name],
+                ids: [entityObj.id],
+                times: [Date.now()],
+            });
+
             $(".overlay").hide();
             $(".newMessage").hide();
             $(".errorMsg").hide();
