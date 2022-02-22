@@ -59,11 +59,7 @@ function addNewContact() {
             users = data;
         });
 
-        console.log(users);
-
         var usersArray = Object.keys(users);
-
-        console.log(usersArray)
 
         for (i = 0; i < usersArray.length; i++) {
             var emailTest;
@@ -73,16 +69,12 @@ function addNewContact() {
                 emailTest = data;
             });
 
-            console.log(emailTest);
-
             if (emailTest == test) {
                 var emailRef = firebase.database().ref('users/' + usersArray[i] + '/id');
                 emailRef.on('value', (snapshot) => {
                     const data = snapshot.val();
                     neededID = data;
                 });
-
-                console.log(neededID);
                 
                 verif = true;
 
@@ -118,6 +110,31 @@ function addNewContact() {
                     });
                 } else {
                     firebase.database().ref('contacts/' + entityObj.id).set({
+                        contacts: [test],
+                    });
+                }
+            });
+
+            var check2 = firebase.database().ref("contacts/" + neededID);
+            check2.once("value", function (snapshot) {
+                if (snapshot.exists()) {
+                    var conts;
+
+                    var dataRef = firebase.database().ref('contacts/' + neededID);
+                    dataRef.on('value', (snapshot) => {
+                        const data = snapshot.val();
+                        conts = data;
+                    });
+
+                    var personContacts = Object.values(conts.contacts);
+
+                    personContacts.push(test);
+
+                    firebase.database().ref('contacts/' + neededID).set({
+                        contacts: personContacts,
+                    });
+                } else {
+                    firebase.database().ref('contacts/' + neededID).set({
                         contacts: [test],
                     });
                 }
