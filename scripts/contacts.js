@@ -30,7 +30,7 @@ window.onkeypress = function (event) {
 
 var users;
 var dataRef = firebase.database().ref('users');
-dataRef.on('value', (snapshot) => {
+dataRef.once('value', (snapshot) => {
     const data = snapshot.val();
     users = data;
 });
@@ -65,14 +65,14 @@ function addNewContact() {
         for (i = 0; i < usersArray.length; i++) {
             var emailTest;
             var emailRef = firebase.database().ref('users/' + usersArray[i] + '/email');
-            emailRef.on('value', (snapshot) => {
+            emailRef.once('value', (snapshot) => {
                 const data = snapshot.val();
                 emailTest = data;
             });
 
             if (emailTest == test) {
                 var emailRef = firebase.database().ref('users/' + usersArray[i] + '/id');
-                emailRef.on('value', (snapshot) => {
+                emailRef.once('value', (snapshot) => {
                     const data = snapshot.val();
                     neededID = data;
                 });
@@ -117,7 +117,7 @@ function addNewContact() {
             var targetEmail;
 
             var emailRef3 = firebase.database().ref('users/' + entityObj.id + '/email');
-            emailRef3.on('value', (snapshot) => {
+            emailRef3.once('value', (snapshot) => {
                 const data = snapshot.val();
                 targetEmail = data;
             });
