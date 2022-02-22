@@ -46,6 +46,8 @@ dataRef2.on('value', (snapshot) => {
 let contactVar, contactVar2;
 
 function addNewContact() {
+    var entityObj = JSON.parse(localStorage.entity);
+
     if (isPopup) {
         var test = document.querySelector(".contact").value;
 
@@ -111,8 +113,6 @@ function addNewContact() {
         }
 
         if (verif && verif2) {
-            var entityObj = JSON.parse(localStorage.entity);
-
             var targetID2;
 
             var emailRef25 = firebase.database().ref('users/' + neededID + '/id');
