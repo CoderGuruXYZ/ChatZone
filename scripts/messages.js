@@ -13,8 +13,7 @@ dataRef2.once('value', (snapshot) => {
     const data = snapshot.val();
     allContacts = data;
 
-    var tempContact = document.querySelector(".dmItem");e
-    
+    var tempContact = document.querySelector(".dmItem");
 
     if(typeof(tempContact) == "undefined" || typeof(tempContact) == null) {
         $(".chat").hide();
