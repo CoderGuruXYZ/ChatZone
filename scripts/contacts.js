@@ -112,7 +112,18 @@ function addNewContact() {
             $(".errorMsg").show();
         }
 
-        if (verif && verif2) {
+        var verif3 = true;
+
+        if(test == entityObj.email) {
+            verif3 = false;
+        }
+
+        if (!verif3) {
+            document.querySelector(".errorMsg").innerHTML = "You Can't Add Yourself";
+            $(".errorMsg").show();
+        }
+
+        if (verif && verif2 && verif3) {
             var targetID2;
 
             var emailRef25 = firebase.database().ref('users/' + neededID + '/id');
