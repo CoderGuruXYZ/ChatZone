@@ -14,13 +14,13 @@ dataRef2.on('value', (snapshot) => {
 
 var entityObj = JSON.parse(localStorage.entity);
 
-window.setTimeout(function(){
-    if(allContacts == null) {
-        $(".chat").hide();
-    } else {
-        openChat(users[allContacts[entityObj.id].contacts[i]].id)
-    }
-}, 100);
+var tempContact = document.querySelector(".dmItem");
+
+if(typeof(tempContact) == "undefined" || typeof(tempContact) == null) {
+    $(".chat").hide();
+} else {
+    openChat(users[allContacts[entityObj.id].contacts[i]].id)
+}
 
 function openChat(targetID) {
     $(".topBar").html(users[targetID].name);
