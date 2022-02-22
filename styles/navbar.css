@@ -3,7 +3,7 @@ body {
 }
 
 nav {
-    width: 300px;
+    width: 350px;
     height: 100vh;
 
     padding: 3vh;
@@ -76,13 +76,13 @@ nav {
 .bottomNav {
     position: absolute;
 
-    width: 300px;
+    width: 350px;
 
     bottom: 3vh;
 }
 
 .signout, .collapse {
-    width: calc(300px - 12vh);
+    width: calc(350px - 12vh);
 
     display: flex;
     justify-content: center;
