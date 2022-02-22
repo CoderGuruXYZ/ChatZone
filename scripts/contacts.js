@@ -110,7 +110,7 @@ function addNewContact() {
         }
         
         if (!verif2) {
-            document.querySelector(".errorMsg").innerHTML = "Contact Already Exists";
+            document.querySelector(".errorMsg").innerHTML = "Can't Add Existing Contact";
             $(".errorMsg").show();
         }
 
