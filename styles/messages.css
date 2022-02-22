@@ -356,3 +356,9 @@
 
     display: none;
 }
+
+@media screen and (max-width: 1200px) {
+    .dmItemEmail {
+        display: none;
+    }
+}
