@@ -13,6 +13,8 @@ dataRef2.on('value', (snapshot) => {
     const data = snapshot.val();
     allContacts = data;
 
+    alert("CHANGE")
+
     if (allContacts != null) {
         var tempContact = document.querySelector(".dmItem");
 
