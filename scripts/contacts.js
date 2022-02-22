@@ -100,7 +100,7 @@ function addNewContact() {
             var entityObj = JSON.parse(localStorage.entity);
 
             var check = firebase.database().ref("contacts/" + entityObj.id.toString());
-            check.on("value", function (snapshot) {
+            check.once("value", function (snapshot) {
                 if (snapshot.exists()) {
                     log(allContacts);
                     contactVar = allContacts[entityObj.id].contacts;
@@ -128,7 +128,7 @@ function addNewContact() {
             });
 
             var check2 = firebase.database().ref("contacts/" + neededID);
-            check2.on("value", function (snapshot) {
+            check2.once("value", function (snapshot) {
                 if (snapshot.exists()) {
                     var dataRef2 = firebase.database().ref('contacts/' + neededID.toString());
                     dataRef2.on('value', (snapshot) => {
