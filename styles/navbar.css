@@ -76,6 +76,8 @@ nav {
 .bottomNav {
     position: absolute;
 
+    width: 100%;e
+
     bottom: 3vh;
 }
 
