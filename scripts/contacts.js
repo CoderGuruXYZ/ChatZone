@@ -95,7 +95,7 @@ function addNewContact() {
             check.once("value", function (snapshot) {
                 if (snapshot.exists()) {
                     var dataRef = firebase.database().ref('contacts/' + entityObj.id);
-                    dataRef.on('value', (snapshot) => {
+                    dataRef.once('value', (snapshot) => {
                         const data = snapshot.val().contacts;
                         contactVar = data;
                     });
@@ -126,7 +126,7 @@ function addNewContact() {
             check2.once("value", function (snapshot) {
                 if (snapshot.exists()) {
                     var dataRef2 = firebase.database().ref('contacts/' + neededID.toString());
-                    dataRef2.on('value', (snapshot) => {
+                    dataRef2.once('value', (snapshot) => {
                         contactVar2 = snapshot.val().contacts;
                     });
 
