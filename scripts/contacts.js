@@ -30,7 +30,6 @@ window.onkeypress = function (event) {
 
 var users;
 var dataRef = firebase.database().ref('users');
-console.log(dataRef);
 dataRef.on('value', (snapshot) => {
     const data = snapshot.val();
     users = data;
@@ -82,8 +81,6 @@ function addNewContact() {
             }
         }
 
-        console.log(neededID);
-
         if (!verif) {
             document.querySelector(".errorMsg").innerHTML = "Address Not Registered";
             $(".errorMsg").show();
@@ -102,6 +99,8 @@ function addNewContact() {
                         const data = snapshot.val();
                         conts = data;
                     });
+
+                    console.log(conts);
 
                     var personContacts = Object.values(conts.contacts);
 
