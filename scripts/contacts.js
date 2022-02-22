@@ -1,14 +1,14 @@
 var isPopup;
 
-document.querySelector(".newDM").addEventListener("click", function() {
+document.querySelector(".newDM").addEventListener("click", function () {
     $(".overlay").show();
     $(".newMessage").show();
 
     isPopup = true;
 });
 
-document.querySelector(".cancelContact").addEventListener("click", function() {
-    if(isPopup) {
+document.querySelector(".cancelContact").addEventListener("click", function () {
+    if (isPopup) {
         $(".overlay").hide();
         $(".newMessage").hide();
 
@@ -18,31 +18,32 @@ document.querySelector(".cancelContact").addEventListener("click", function() {
     }
 });
 
-document.querySelector(".confirmContact").addEventListener("click", function() {
-    if(isPopup) {
+document.querySelector(".confirmContact").addEventListener("click", function () {
+    if (isPopup) {
         var test = document.querySelector(".contact").value;
 
-        if(test.length < 0) {
+        if (test.length < 0) {
             document.querySelector(".errorMsg").innerHTML = "Please Enter an Email";
             $(".errorMsg").show();
         } else {
-            if(test.indexOf("@") < 0) {
+            if (test.indexOf("@") < 0) {
                 document.querySelector(".errorMsg").innerHTML = "Please Enter a Valid Email";
-                $(".errorMsg").show(); 
+                $(".errorMsg").show();
             } else {
-                if(test.indexOf(".") < 0) {
+                if (test.indexOf(".") < 0) {
                     document.querySelector(".errorMsg").innerHTML = "Please Enter a Valid Email";
-                    $(".errorMsg").show(); 
+                    $(".errorMsg").show();
                 }
             }
         }
 
         var verif = true;
 
-        if(verif) {
+        if (verif) {
             var entityObj = JSON.parse(localStorage.entity);
 
-            var check = firebase.database().ref().orderByKey().equalTo("contacts/" + entityObj.id).once("value", function (snapshot) {
+            var check = firebase.database().ref("contacts/" + entityObj.id);
+            check.once("value", function (snapshot) {
                 if (snapshot.exists()) {
                     var conts;
 
@@ -64,7 +65,7 @@ document.querySelector(".confirmContact").addEventListener("click", function() {
                         contacts: [test],
                     });
                 }
-            });            
+            });
 
             $(".overlay").hide();
             $(".newMessage").hide();
