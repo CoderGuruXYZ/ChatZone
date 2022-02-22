@@ -82,7 +82,7 @@ nav {
 }
 
 .signout, .collapse {
-    width: 300px;
+    width: calc(300px - 12vh);
 
     display: flex;
     justify-content: center;
@@ -127,7 +127,7 @@ nav.collapsed {
 }
 
 .signout.collapsed, .collapse.collapsed {
-    width: 80%;
+    width: 15%;
 
     display: flex;
 }
