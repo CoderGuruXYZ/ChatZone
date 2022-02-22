@@ -102,7 +102,7 @@ function addNewContact() {
             var check = firebase.database().ref("contacts/" + entityObj.id.toString());
             check.once("value", function (snapshot) {
                 if (snapshot.exists()) {
-                    log(allContacts);
+                    console.log(allContacts);
                     contactVar = allContacts[entityObj.id].contacts;
 
                     var personContacts = contactVar;
@@ -134,8 +134,6 @@ function addNewContact() {
                     dataRef2.on('value', (snapshot) => {
                         contactVar2 = snapshot.val().contacts;
                     });
-
-                    console.log(contactVar2);
 
                     var personContacts = contactVar2;
 
