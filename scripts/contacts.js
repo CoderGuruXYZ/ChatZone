@@ -100,13 +100,15 @@ function addNewContact() {
 
         var verif2 = true;
 
-        for(i = 0; i < (allContacts[entityObj.id].contacts).length; i++) {
-            if(users[allContacts[entityObj.id].contacts[i]].email == test) {
-                verif2 = false;
-                break;
+        if(allContacts != null) {
+            for(i = 0; i < (allContacts[entityObj.id].contacts).length; i++) {
+                if(users[allContacts[entityObj.id].contacts[i]].email == test) {
+                    verif2 = false;
+                    break;
+                }
             }
         }
-
+        
         if (!verif2) {
             document.querySelector(".errorMsg").innerHTML = "Contact Already Exists";
             $(".errorMsg").show();
