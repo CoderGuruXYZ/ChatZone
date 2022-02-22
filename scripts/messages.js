@@ -1,3 +1,5 @@
+var entityObj = JSON.parse(localStorage.entity);
+
 var users;
 var dataRef = firebase.database().ref('users');
 dataRef.on('value', (snapshot) => {
@@ -7,7 +9,7 @@ dataRef.on('value', (snapshot) => {
 
 var allContacts;
 var dataRef2 = firebase.database().ref('contacts');
-dataRef2.on('value', (snapshot) => {
+dataRef2.once('value', (snapshot) => {
     const data = snapshot.val();
     allContacts = data;
 
@@ -16,13 +18,7 @@ dataRef2.on('value', (snapshot) => {
     } else {
         openChat(users[allContacts[entityObj.id].contacts[0]].id)
     }
-});
 
-var entityObj = JSON.parse(localStorage.entity);
-
-var tempContact = document.querySelector(".dmItem");
-
-if(allContacts != null) {
     var allItems = document.querySelectorAll(".dmItem");
 
     for(i = 0; i < allItems.length; i++) {
@@ -30,7 +26,9 @@ if(allContacts != null) {
             openChat(this.id);
         });
     }
-}
+});
+
+var tempContact = document.querySelector(".dmItem");
 
 function openChat(targetID) {
     $(".topBar").html(users[targetID].name);
