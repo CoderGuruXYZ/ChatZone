@@ -36,7 +36,7 @@ dataRef.on('value', (snapshot) => {
     users = data;
 });
 
-var contactVar, contactVar2;
+let contactVar, contactVar2;
 
 function addNewContact() {
     if (isPopup) {
@@ -101,15 +101,13 @@ function addNewContact() {
                         contactVar = data;
                     });
 
-                    //window.setTimeout(function () {
-                        var personContacts = contactVar;
+                    var personContacts = contactVar;
 
-                        personContacts.push(test);
+                    personContacts.push(test);
 
-                        firebase.database().ref('contacts/' + entityObj.id).set({
-                            contacts: personContacts,
-                        });
-                    //}, 100);
+                    firebase.database().ref('contacts/' + entityObj.id).set({
+                        contacts: personContacts,
+                    });
                 } else {
                     firebase.database().ref('contacts/' + entityObj.id).set({
                         contacts: [test],
@@ -133,17 +131,15 @@ function addNewContact() {
                         contactVar2 = snapshot.val().contacts;
                     });
 
-                    //window.setTimeout(function () {
-                        console.log(contactVar2);
+                    console.log(contactVar2);
 
-                        var personContacts = contactVar2;
+                    var personContacts = contactVar2;
 
-                        personContacts.push(targetEmail);
+                    personContacts.push(targetEmail);
 
-                        firebase.database().ref('contacts/' + neededID).set({
-                            contacts: personContacts,
-                        });
-                    //}, 100);
+                    firebase.database().ref('contacts/' + neededID).set({
+                        contacts: personContacts,
+                    });
                 } else {
                     firebase.database().ref('contacts/' + neededID).set({
                         contacts: [targetEmail],
