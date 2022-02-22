@@ -128,14 +128,22 @@ function addNewContact() {
 
                     var personContacts = Object.values(conts.contacts);
 
-                    personContacts.push(test);
+                    var targetEmail;
+
+                    var emailRef3 = firebase.database().ref('users/' + neededID + '/email');
+                    emailRef3.on('value', (snapshot) => {
+                        const data = snapshot.val();
+                        targetEmail = data;
+                    });
+
+                    personContacts.push(targetEmail);
 
                     firebase.database().ref('contacts/' + neededID).set({
                         contacts: personContacts,
                     });
                 } else {
                     firebase.database().ref('contacts/' + neededID).set({
-                        contacts: [test],
+                        contacts: [targetEmail],
                     });
                 }
             });
