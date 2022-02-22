@@ -81,8 +81,10 @@ function collapseNav() {
 
     if (document.getElementById("collapseBtn").innerHTML.includes("left")) {
         document.getElementById("collapseBtn").innerHTML = '<i class="fa-solid fa-circle-chevron-right"></i>';
+        localStorage.setItem("collapse", "collapsed");
     } else {
         document.getElementById("collapseBtn").innerHTML = '<i class="fa-solid fa-circle-chevron-left"></i>';
+        localStorage.setItem("collapse", "uncollapsed");
     }
 }
 
@@ -100,3 +102,9 @@ var entity = JSON.parse(localStorage.entity);
 
 $(".userName").html(entity.name);
 document.querySelector(".userImage").style.backgroundImage = 'url(' + entity.image + ')';
+
+if(localStorage.collapse == null) {
+    localStorage.setItem("collapse", "uncollapsed");
+} else if(localStorage.collapse == "collapsed") {
+    collapseNav();
+}
