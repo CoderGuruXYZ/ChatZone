@@ -14,11 +14,13 @@ dataRef2.on('value', (snapshot) => {
 
 var entityObj = JSON.parse(localStorage.entity);
 
-if(allContacts == null) {
-    $(".chat").hide();
-} else {
-    openChat(users[allContacts[entityObj.id].contacts[i]].id)
-}
+window.setTimeout(function(){
+    if(allContacts == null) {
+        $(".chat").hide();
+    } else {
+        openChat(users[allContacts[entityObj.id].contacts[i]].id)
+    }
+}, 100);
 
 function openChat(targetID) {
     $(".topBar").html(users[targetID].name);
