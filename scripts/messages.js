@@ -9,7 +9,7 @@ dataRef.on('value', (snapshot) => {
 
 var allContacts;
 var dataRef2 = firebase.database().ref('contacts');
-dataRef2.once('value', (snapshot) => {
+dataRef2.on('value', (snapshot) => {
     const data = snapshot.val();
     allContacts = data;
 
