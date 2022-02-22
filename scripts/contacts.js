@@ -31,7 +31,7 @@ window.onkeypress = function (event) {
 
 var users;
 var dataRef = firebase.database().ref('users');
-dataRef.once('value', (snapshot) => {
+dataRef.on('value', (snapshot) => {
     const data = snapshot.val();
     users = data;
 });
@@ -66,14 +66,14 @@ function addNewContact() {
         for (i = 0; i < usersArray.length; i++) {
             var emailTest;
             var emailRef = firebase.database().ref('users/' + usersArray[i] + '/email');
-            emailRef.once('value', (snapshot) => {
+            emailRef.on('value', (snapshot) => {
                 const data = snapshot.val();
                 emailTest = data;
             });
 
             if (emailTest == test) {
                 var emailRef = firebase.database().ref('users/' + usersArray[i] + '/id');
-                emailRef.once('value', (snapshot) => {
+                emailRef.on('value', (snapshot) => {
                     const data = snapshot.val();
                     neededID = data;
                 });
@@ -93,15 +93,15 @@ function addNewContact() {
             var entityObj = JSON.parse(localStorage.entity);
 
             var check = firebase.database().ref("contacts/" + entityObj.id.toString());
-            check.once("value", function (snapshot) {
+            check.on("value", function (snapshot) {
                 if (snapshot.exists()) {
                     var dataRef = firebase.database().ref('contacts/' + entityObj.id);
-                    dataRef.once('value', (snapshot) => {
+                    dataRef.on('value', (snapshot) => {
                         const data = snapshot.val().contacts;
                         contactVar = data;
                     });
 
-                    window.setTimeout(function () {
+                    //window.setTimeout(function () {
                         var personContacts = contactVar;
 
                         personContacts.push(test);
@@ -109,7 +109,7 @@ function addNewContact() {
                         firebase.database().ref('contacts/' + entityObj.id).set({
                             contacts: personContacts,
                         });
-                    }, 100);
+                    //}, 100);
                 } else {
                     firebase.database().ref('contacts/' + entityObj.id).set({
                         contacts: [test],
@@ -120,20 +120,20 @@ function addNewContact() {
             var targetEmail;
 
             var emailRef3 = firebase.database().ref('users/' + entityObj.id + '/email');
-            emailRef3.once('value', (snapshot) => {
+            emailRef3.on('value', (snapshot) => {
                 const data = snapshot.val();
                 targetEmail = data;
             });
 
             var check2 = firebase.database().ref("contacts/" + neededID);
-            check2.once("value", function (snapshot) {
+            check2.on("value", function (snapshot) {
                 if (snapshot.exists()) {
                     var dataRef2 = firebase.database().ref('contacts/' + neededID.toString());
-                    dataRef2.once('value', (snapshot) => {
+                    dataRef2.on('value', (snapshot) => {
                         contactVar2 = snapshot.val().contacts;
                     });
 
-                    window.setTimeout(function () {
+                    //window.setTimeout(function () {
                         console.log(contactVar2);
 
                         var personContacts = contactVar2;
@@ -143,7 +143,7 @@ function addNewContact() {
                         firebase.database().ref('contacts/' + neededID).set({
                             contacts: personContacts,
                         });
-                    }, 100);
+                    //}, 100);
                 } else {
                     firebase.database().ref('contacts/' + neededID).set({
                         contacts: [targetEmail],
