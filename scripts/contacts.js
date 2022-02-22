@@ -99,7 +99,7 @@ function addNewContact() {
         var verif2 = true;
 
         for(i = 0; i < allContacts[entityObj.id].contacts.length; i++) {
-            if(allContacts[entityObj.id].contacts[i] == test) {
+            if(users[allContacts[entityObj.id].contacts[i]].email == test) {
                 verif2 = false;
                 break;
             }
