@@ -82,6 +82,8 @@ function addNewContact() {
             }
         }
 
+        console.log(neededID);
+
         if(!verif) {
             document.querySelector(".errorMsg").innerHTML = "Address Not Registered";
             $(".errorMsg").show();
