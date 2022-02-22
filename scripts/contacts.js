@@ -100,13 +100,15 @@ function addNewContact() {
                         contactVar = data;
                     });
 
-                    var personContacts = contactVar;
+                    window.setTimeout(function () {
+                        var personContacts = contactVar;
 
-                    personContacts.push(test);
+                        personContacts.push(test);
 
-                    firebase.database().ref('contacts/' + entityObj.id).set({
-                        contacts: personContacts,
-                    });
+                        firebase.database().ref('contacts/' + entityObj.id).set({
+                            contacts: personContacts,
+                        });
+                    }, 100);
                 } else {
                     firebase.database().ref('contacts/' + entityObj.id).set({
                         contacts: [test],
@@ -130,15 +132,17 @@ function addNewContact() {
                         contactVar2 = snapshot.val().contacts;
                     });
 
-                    console.log(contactVar2);
+                    window.setTimeout(function () {
+                        console.log(contactVar2);
 
-                    var personContacts = contactVar2;
+                        var personContacts = contactVar2;
 
-                    personContacts.push(targetEmail);
+                        personContacts.push(targetEmail);
 
-                    firebase.database().ref('contacts/' + neededID).set({
-                        contacts: personContacts,
-                    });
+                        firebase.database().ref('contacts/' + neededID).set({
+                            contacts: personContacts,
+                        });
+                    }, 100);
                 } else {
                     firebase.database().ref('contacts/' + neededID).set({
                         contacts: [targetEmail],
