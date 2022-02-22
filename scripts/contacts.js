@@ -36,6 +36,13 @@ dataRef.on('value', (snapshot) => {
     users = data;
 });
 
+var allContacts;
+var dataRef2 = firebase.database().ref('contacts');
+dataRef2.on('value', (snapshot) => {
+    const data = snapshot.val();
+    allContacts = data;
+});
+
 let contactVar, contactVar2;
 
 function addNewContact() {
@@ -95,11 +102,8 @@ function addNewContact() {
             var check = firebase.database().ref("contacts/" + entityObj.id.toString());
             check.on("value", function (snapshot) {
                 if (snapshot.exists()) {
-                    var dataRef = firebase.database().ref('contacts/' + entityObj.id);
-                    dataRef.on('value', (snapshot) => {
-                        const data = snapshot.val().contacts;
-                        contactVar = data;
-                    });
+                    log(allContacts);
+                    contactVar = allContacts[entityObj.id].contacts;
 
                     var personContacts = contactVar;
 
