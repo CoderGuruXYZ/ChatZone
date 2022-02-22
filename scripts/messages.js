@@ -25,9 +25,9 @@ dataRef2.on('value', (snapshot) => {
         var allItems = document.querySelectorAll(".dmItem");
 
         for (i = 0; i < allItems.length; i++) {
-            allItems[i].addEventListener("click", function () {
+            allItems[i].onclick = function () {
                 openChat(this.id);
-            });
+            };
         }
     }
 });
