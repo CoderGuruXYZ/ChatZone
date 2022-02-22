@@ -67,7 +67,7 @@ function addNewContact() {
 
         for (i = 0; i < usersArray.length; i++) {
             var emailTest;
-            var emailRef = firebase.database().ref('users/' + i + '/email');
+            var emailRef = firebase.database().ref('users/' + usersArray[i] + '/email');
             emailRef.on('value', (snapshot) => {
                 const data = snapshot.val();
                 emailTest = data;
@@ -76,7 +76,7 @@ function addNewContact() {
             console.log(emailTest);
 
             if (emailTest == test) {
-                var emailRef = firebase.database().ref('users/' + i + '/id');
+                var emailRef = firebase.database().ref('users/' + usersArray[i] + '/id');
                 emailRef.on('value', (snapshot) => {
                     const data = snapshot.val();
                     neededID = data;
