@@ -22,6 +22,10 @@ if(typeof(tempContact) == "undefined" || typeof(tempContact) == null) {
     openChat(users[allContacts[entityObj.id].contacts[i]].id)
 }
 
+document.querySelectorAll(".dmItem").onclick = function() {
+    
+}
+
 function openChat(targetID) {
     $(".topBar").html(users[targetID].name);
 }
