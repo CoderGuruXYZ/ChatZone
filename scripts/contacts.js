@@ -98,8 +98,8 @@ function addNewContact() {
 
         var verif2 = true;
 
-        for(i = 0; i < allContacts.length; i++) {
-            if(allContacts[i] == test) {
+        for(i = 0; i < allContacts[entityObj.id].contacts.length; i++) {
+            if(allContacts[entityObj.id].contacts[i] == test) {
                 verif2 = false;
                 break;
             }
