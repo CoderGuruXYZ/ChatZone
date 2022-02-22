@@ -19,6 +19,17 @@ document.querySelector(".cancelContact").addEventListener("click", function () {
 });
 
 document.querySelector(".confirmContact").addEventListener("click", function () {
+    addNewContact();
+});
+
+window.onkeypress = function (event) {
+    if (event.keyCode == "13" && isPopup) {
+        addNewContact();
+    }
+};
+
+
+function addNewContact() {
     if (isPopup) {
         var test = document.querySelector(".contact").value;
 
@@ -37,7 +48,33 @@ document.querySelector(".confirmContact").addEventListener("click", function () 
             }
         }
 
-        var verif = true;
+        var verif = false;
+
+        var users, neededID;
+
+        var dataRef = firebase.database().ref('users');
+        dataRef.on('value', (snapshot) => {
+            const data = snapshot.val();
+            users = data;
+        });
+
+        var usersArray = Object.keys(users);
+
+        for (i = 0; i < usersArray.length; i++) {
+            if (users[i].email == test) {
+                neededID = users[i].id;
+                console.log(neededID);
+                
+                verif = true;
+
+                break;
+            }
+        }
+
+        if(!verif) {
+            document.querySelector(".errorMsg").innerHTML = "Address Not Registered";
+            $(".errorMsg").show();
+        }
 
         if (verif) {
             var entityObj = JSON.parse(localStorage.entity);
@@ -75,4 +112,4 @@ document.querySelector(".confirmContact").addEventListener("click", function () 
             isPopup = false;
         }
     }
-});
+}
