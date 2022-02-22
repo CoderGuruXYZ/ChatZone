@@ -131,6 +131,8 @@ function addNewContact() {
                         conts2 = data;
                     });
 
+                    console.log(conts2);
+
                     var personContacts = Object.values(conts2.contacts);
 
                     personContacts.push(targetEmail);
