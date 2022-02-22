@@ -35,6 +35,20 @@ dataRef.on('value', (snapshot) => {
     users = data;
 });
 
+var conts;
+var dataRef = firebase.database().ref('contacts/' + entityObj.id);
+dataRef.on('value', (snapshot) => {
+    const data = snapshot.val();
+    conts = data;
+});
+
+var conts2;
+var dataRef = firebase.database().ref('contacts/' + neededID);
+dataRef.on('value', (snapshot) => {
+    const data = snapshot.val();
+    conts2 = data;
+});
+
 function addNewContact() {
     if (isPopup) {
         var test = document.querySelector(".contact").value;
@@ -92,16 +106,6 @@ function addNewContact() {
             var check = firebase.database().ref("contacts/" + entityObj.id);
             check.once("value", function (snapshot) {
                 if (snapshot.exists()) {
-                    var conts;
-
-                    var dataRef = firebase.database().ref('contacts/' + entityObj.id);
-                    dataRef.on('value', (snapshot) => {
-                        const data = snapshot.val();
-                        conts = data;
-                    });
-
-                    console.log(conts);
-
                     var personContacts = Object.values(conts.contacts);
 
                     personContacts.push(test);
@@ -127,15 +131,7 @@ function addNewContact() {
             var check2 = firebase.database().ref("contacts/" + neededID);
             check2.once("value", function (snapshot) {
                 if (snapshot.exists()) {
-                    var conts;
-
-                    var dataRef = firebase.database().ref('contacts/' + neededID);
-                    dataRef.on('value', (snapshot) => {
-                        const data = snapshot.val();
-                        conts = data;
-                    });
-
-                    var personContacts = Object.values(conts.contacts);
+                    var personContacts = Object.values(conts2.contacts);
 
                     personContacts.push(targetEmail);
 
