@@ -141,10 +141,10 @@
 .isTyping {
     position: absolute;
 
-    color: green;
+    color: rgb(0, 200, 0);
 
     right: calc(3vh + 10px);
-    top: calc(3vh + 2%);
+    top: calc(3vh + 1.75%);
 }
 
 .messages {
