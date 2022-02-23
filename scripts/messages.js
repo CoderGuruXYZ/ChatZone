@@ -101,6 +101,8 @@ function loadChat(targetID, deleted, ids, images, messagesARRAY, names, reaction
 
         document.querySelector(".messages").appendChild(message);
     }
+
+    document.querySelector(".messages").scrollTop = document.querySelector(".messages").scrollHeight - document.querySelector(".messages").clientHeight
 }
 
 function sendMessage(message, targetID) {
