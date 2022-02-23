@@ -144,12 +144,12 @@ function loadChat(targetID, deleted, ids, images, messagesARRAY, names, reaction
 
     document.querySelector(".messages").scrollTop = document.querySelector(".messages").scrollHeight - document.querySelector(".messages").clientHeight
 
-    var allInfos = document.querySelectorAll(".messageInfo");
-    for (i = 0; i < allInfos.length; i++) {
-        allInfos[i].addEventListener("click", function () {
-            document.getElementById("popup" + this.id).style.display = "block";
-        });
-    }
+    // var allInfos = document.querySelectorAll(".messageInfo");
+    // for (i = 0; i < allInfos.length; i++) {
+    //     allInfos[i].addEventListener("click", function () {
+    //         document.getElementById("popup" + this.id).style.display = "block";
+    //     });
+    // }
 
     var allInfosUser = document.querySelectorAll(".messageInfoUser");
     for (i = 0; i < allInfosUser.length; i++) {
@@ -164,27 +164,29 @@ function loadChat(targetID, deleted, ids, images, messagesARRAY, names, reaction
             var temp = split_at_index(this.id, 7);
             var parts = temp.split(",");
 
-            var chatID = (parseInt(entityObj.id.slice(0, 15)) + parseInt(document.querySelector(".topBar").id.slice(0, 15))).toString();
+            if(parts[0].includes("user")) {
+                var chatID = (parseInt(entityObj.id.slice(0, 15)) + parseInt(document.querySelector(".topBar").id.slice(0, 15))).toString();
 
-            var deleted = Object.values(chats[chatID].deleted);
+                var deleted = Object.values(chats[chatID].deleted);
 
-            deleted[parseInt(parts[1])] = JSON.stringify(true);
+                deleted[parseInt(parts[1])] = JSON.stringify(true);
 
-            firebase.database().ref('messages/' + chatID).set({
-                deleted: deleted,
-            });
+                firebase.database().ref('messages/' + chatID).set({
+                    deleted: deleted,
+                });
 
-            document.getElementById("popup" + parts[1]).style.display = "none";
+                document.getElementById("popup" + parts[1]).style.display = "none";
 
-            loadChat(document.querySelector(".topBar").id,
-                Object.values(chats[chatID].deleted),
-                Object.values(chats[chatID].ids),
-                Object.values(chats[chatID].images),
-                Object.values(chats[chatID].messages),
-                Object.values(chats[chatID].names),
-                Object.values(chats[chatID].reactions),
-                Object.values(chats[chatID].times)
-            );
+                loadChat(document.querySelector(".topBar").id,
+                    Object.values(chats[chatID].deleted),
+                    Object.values(chats[chatID].ids),
+                    Object.values(chats[chatID].images),
+                    Object.values(chats[chatID].messages),
+                    Object.values(chats[chatID].names),
+                    Object.values(chats[chatID].reactions),
+                    Object.values(chats[chatID].times)
+                );
+            }
         })
     }
 }
