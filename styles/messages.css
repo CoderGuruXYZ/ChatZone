@@ -153,8 +153,11 @@
     display: flex;
     
     width: fit-content;
+    max-width: 80%;
 
     margin-bottom: 15px;
+
+    word-wrap: break-word;
 }
 
 .messageDetails {
