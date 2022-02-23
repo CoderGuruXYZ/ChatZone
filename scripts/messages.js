@@ -59,10 +59,11 @@ function openChat(targetID) {
     document.querySelector(".topBar").id = targetID;
 }
 
-function loadChat(targetID, deleted, ids, images, messages, names, reactions, times) {
+function loadChat(targetID, deleted, ids, images, messagesARRAY, names, reactions, times) {
     $(".messages").html("");
+    console.log(messages);
 
-    for (i = 0; i < messages.length; i++) {
+    for (i = 0; i < messagesARRAY.length; i++) {
         var message = document.createElement("div");
         message.classList.add("message");
 
@@ -73,7 +74,7 @@ function loadChat(targetID, deleted, ids, images, messages, names, reactions, ti
         if (!JSON.parse(deleted[i])) {
             var messageText = document.createElement("div");
             messageText.classList.add("messageText");
-            messageText.innerHTML = window.atob(messages[i]);
+            messageText.innerHTML = window.atob(messagesARRAY[i]);
 
             if (ids[i] != entityObj.id) {
                 var messageDetails = document.createElement("div");
