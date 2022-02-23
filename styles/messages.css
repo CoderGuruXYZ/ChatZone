@@ -220,27 +220,32 @@
     margin-left: auto;
 
     margin-right: 5px;
-    margin-left: 0px;
 }
 
 .messageInfo {
     position: absolute;
 
-    left: 2.5px;
+    left: 5px;
 
-    font-size: 12px;
+    font-size: 18px;
 
     color: gray;
+
+    top: auto;
+    bottom: auto;
 }
 
 .messageInfoUser {
     position: absolute;
 
-    right: 2.5px;
+    right: 5px;
 
-    font-size: 12px;
+    font-size: 18px;
 
     color: gray;
+
+    top: auto;
+    bottom: auto;
 }
 
 .chatBox {
