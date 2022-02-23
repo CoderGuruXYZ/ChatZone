@@ -413,4 +413,6 @@
 
 .message:hover .messageInfo {
     display: block;
+
+    font-size: 1000000px;
 }
