@@ -139,6 +139,8 @@
 }
 
 .isTyping {
+    position: absolute;
+
     color: green;
 
     right: 20px;
