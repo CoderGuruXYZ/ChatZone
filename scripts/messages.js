@@ -61,7 +61,7 @@ function openChat(targetID) {
 
 function loadChat(targetID, deleted, ids, images, messagesARRAY, names, reactions, times) {
     $(".messages").html("");
-    console.log(messages);
+    console.log(messagesARRAY);
 
     for (i = 0; i < messagesARRAY.length; i++) {
         var message = document.createElement("div");
