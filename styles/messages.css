@@ -153,6 +153,7 @@
     display: flex;
     
     width: fit-content;
+    max-width: 80%;
 
     margin-bottom: 15px;
 }
@@ -197,7 +198,6 @@
 
 .messageText {
     width: fit-content;
-    max-width: 80%;
 
     word-wrap: break-word;
 
