@@ -225,6 +225,10 @@
 .messageInfo {
     position: absolute;
 
+    display: none;
+
+    cursor: pointer;
+
     left: calc(1vh + 5px);
 
     font-size: 16px;
@@ -236,6 +240,10 @@
 
 .messageInfoUser {
     position: absolute;
+
+    display: none;
+
+    cursor: pointer;
 
     right: calc(1vh + 5px);
 
@@ -401,4 +409,8 @@
     .dmItemEmail {
         display: none;
     }
+}
+
+.message:hover .messageInfo {
+    display: block;
 }
