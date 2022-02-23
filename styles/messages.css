@@ -227,11 +227,11 @@
 
     left: calc(1vh + 5px);
 
-    font-size: 18px;
+    font-size: 16px;
 
     color: gray;
 
-    margin-top: 20px;
+    margin-top: 15px;
 }
 
 .messageInfoUser {
@@ -239,11 +239,11 @@
 
     right: calc(1vh + 5px);
 
-    font-size: 18px;
+    font-size: 16px;
 
     color: gray;
 
-    margin-top: 20px;
+    margin-top: 15px;
 }
 
 .chatBox {
