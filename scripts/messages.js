@@ -123,7 +123,7 @@ function sendMessage(message, targetID) {
         reactions.push("none");
         times.push(Date.now())
 
-        firebase.database().ref('messages/' + (parseInt(entityObj.id.slice(0, 15)) + parseInt(target.slice(0, 15))).toString()).set({
+        firebase.database().ref('messages/' + chatID).set({
             messages: messages,
             images: images,
             names: names,
