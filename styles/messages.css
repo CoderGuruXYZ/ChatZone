@@ -155,6 +155,10 @@
     width: fit-content;
     max-width: 80%;
 
+    margin-bottom: 15px;
+}
+
+.message:last-child {
     margin-bottom: 0px;
 }
 
