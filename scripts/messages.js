@@ -280,3 +280,28 @@ window.onkeypress = function (event) {
         sendMessage(document.getElementById("userText").value, document.querySelector(".topBar").id);
     }
 };
+
+document.getElementById("userText").oninput = function() {
+    firebase.database().ref('typing/' + JSON.parse(localStorage.entity).id).set({
+        isTyping: JSON.stringify(true),
+    });
+}
+
+document.getElementById("userText").onchange = function() {
+    firebase.database().ref('typing/' + JSON.parse(localStorage.entity).id).set({
+        isTyping: JSON.stringify(false),
+    });
+}
+
+var typing;
+var dataRef = firebase.database().ref('typing/' + document.querySelector(".topBar").id);
+dataRef.on('value', (snapshot) => {
+    const data = snapshot.val();
+    typing = data;
+
+    if(JSON.parse(typing)) {
+        $(".isTyping").show();
+    } else {
+        $(".isTyping").hide();
+    }
+});
