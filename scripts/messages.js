@@ -169,7 +169,9 @@ function loadChat(targetID, deleted, ids, images, messagesARRAY, names, reaction
             var parts = temp.split(",");
 
             if(parts[0].includes("user")) {
-                var chatID = (parseInt(entityObj.id.slice(0, 15)) + parseInt(document.querySelector(".topBar").id.slice(0, 15))).toString();
+                var entityObj2 = JSON.parse(localStorage.entity);
+
+                var chatID = (parseInt(entityObj2.id.slice(0, 15)) + parseInt(document.querySelector(".topBar").id.slice(0, 15))).toString();
 
                 var deleted = Object.values(chats[chatID].deleted);
 
