@@ -303,6 +303,8 @@ dataRef4.on('value', (snapshot) => {
     const data = snapshot.val();
     typing = data;
 
+    console.log(typing);
+
     if(JSON.parse(typing.isTyping)) {
         $(".isTyping").show();
     } else {
