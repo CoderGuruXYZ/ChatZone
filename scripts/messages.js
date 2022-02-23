@@ -27,6 +27,15 @@ dataRef2.on('value', (snapshot) => {
         for (i = 0; i < allItems.length; i++) {
             allItems[i].addEventListener("click", function () {
                 openChat(this.id);
+                loadChat(document.querySelector(".topBar").id,
+                    Object.values(chats[chatID].deleted),
+                    Object.values(chats[chatID].ids),
+                    Object.values(chats[chatID].images),
+                    Object.values(chats[chatID].messages),
+                    Object.values(chats[chatID].names),
+                    Object.values(chats[chatID].reactions),
+                    Object.values(chats[chatID].times)
+                );
             });
         }
     }
