@@ -38,17 +38,19 @@ dataRef.on('value', (snapshot) => {
     const data = snapshot.val();
     chats = data;
 
-    var chatID = (parseInt(entityObj.id) + parseInt(document.querySelector(".topBar").id)).toString();
+    if(chats != null) {
+        var chatID = (parseInt(entityObj.id.slice(0, 15)) + parseInt(document.querySelector(".topBar").id.slice(0, 15))).toString();
 
-    loadChat(document.querySelector(".topBar").id, 
-        Object.values(chats[chatID].deleted),
-        Object.values(chats[chatID].ids),
-        Object.values(chats[chatID].images),
-        Object.values(chats[chatID].messages),
-        Object.values(chats[chatID].names),
-        Object.values(chats[chatID].reactions),
-        Object.values(chats[chatID].times)
-    );
+        loadChat(document.querySelector(".topBar").id, 
+            Object.values(chats[chatID].deleted),
+            Object.values(chats[chatID].ids),
+            Object.values(chats[chatID].images),
+            Object.values(chats[chatID].messages),
+            Object.values(chats[chatID].names),
+            Object.values(chats[chatID].reactions),
+            Object.values(chats[chatID].times)
+        );
+    }
 });
 
 function openChat(targetID) {
