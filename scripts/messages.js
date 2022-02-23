@@ -305,7 +305,7 @@ dataRef4.on('value', (snapshot) => {
 
     console.log(typing);
 
-    if(JSON.parse(typing.isTyping)) {
+    if(JSON.parse(typing[document.querySelector(".topBar").id].isTyping)) {
         $(".isTyping").show();
     } else {
         $(".isTyping").hide();
