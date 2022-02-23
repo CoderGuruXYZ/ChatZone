@@ -133,6 +133,8 @@ function sendMessage(message, targetID) {
             reactions: reactions,
         });
 
+        document.getElementById("userText").value = "";
+
         var chatID = (parseInt(entityObj.id.slice(0, 15)) + parseInt(document.querySelector(".topBar").id.slice(0, 15))).toString();
 
         loadChat(document.querySelector(".topBar").id,
