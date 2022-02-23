@@ -422,3 +422,9 @@
 .message#user:hover .messageInfoUser {
     display: block;
 }
+
+.messagePopup {
+    display: none;
+    
+    position: absolute;
+}
