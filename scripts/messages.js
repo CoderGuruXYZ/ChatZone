@@ -109,12 +109,13 @@ function loadChat(targetID, deleted, ids, images, messagesARRAY, names, reaction
             message.appendChild(messageText);
 
             var messageInfo = document.createElement("div");
-            messageInfo.classList.add("messageInfo");
-            messageInfo.innerHTML = '<i class="fa-solid fa-ellipsis-vertical"></i>';
             if (ids[i] == entityObj.id) {
-                messageInfo.id = "user";
+                messageInfo.classList.add("messageInfoUser");
+            } else {
+                messageInfo.classList.add("messageInfo");
             }
-
+            messageInfo.innerHTML = '<i class="fa-solid fa-ellipsis-vertical"></i>';
+            
             message.appendChild(messageInfo);
         } else {
             message.style.display = "none";
