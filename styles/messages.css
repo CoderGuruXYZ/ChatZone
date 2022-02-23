@@ -153,11 +153,8 @@
     display: flex;
     
     width: fit-content;
-    max-width: 80%;
 
     margin-bottom: 15px;
-
-    word-wrap: break-word;
 }
 
 .messageDetails {
@@ -200,6 +197,9 @@
 
 .messageText {
     width: fit-content;
+    max-width: 80%;
+
+    word-wrap: break-word;
 
     background-color: rgb(47.5, 47.5, 47.5);
 
