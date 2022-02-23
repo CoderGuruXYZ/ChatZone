@@ -285,25 +285,23 @@ window.onkeypress = function (event) {
     }
 };
 
-document.getElementById("userText").oninput = function() {
-    firebase.database().ref('typing/' + JSON.parse(localStorage.entity).id).set({
-        isTyping: JSON.stringify(true),
+$(function() {
+    $('input, textarea, select').focus(function() {
+        firebase.database().ref('typing/' + JSON.parse(localStorage.entity).id).set({
+            isTyping: JSON.stringify(true),
+        });
+    }).blur(function(){
+        firebase.database().ref('typing/' + JSON.parse(localStorage.entity).id).set({
+            isTyping: JSON.stringify(false),
+        });
     });
-}
-
-document.getElementById("userText").onchange = function() {
-    firebase.database().ref('typing/' + JSON.parse(localStorage.entity).id).set({
-        isTyping: JSON.stringify(false),
-    });
-}
+});
 
 var typing;
 var dataRef4 = firebase.database().ref('typing/' + document.querySelector(".topBar").id);
 dataRef4.on('value', (snapshot) => {
     const data = snapshot.val();
     typing = data;
-
-    console.log(typing);
 
     if(JSON.parse(typing[document.querySelector(".topBar").id].isTyping)) {
         $(".isTyping").show();
