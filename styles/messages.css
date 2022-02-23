@@ -237,10 +237,7 @@
 
     margin-top: 15px;
 
-    padding-left: 10px;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    padding-right: 5px;
+    padding-right: 10px;
 }
 
 .messageInfoUser {
@@ -258,10 +255,7 @@
 
     margin-top: 15px;
 
-    padding-left: 5px;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    padding-right: 10px;
+    padding-left: 10px;
 }
 
 .chatBox {
