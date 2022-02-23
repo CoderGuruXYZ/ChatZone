@@ -49,7 +49,7 @@ function addNewContact() {
     var entityObj = JSON.parse(localStorage.entity);
 
     if (isPopup) {
-        var test = document.querySelector(".contact").value;
+        var test = document.querySelector(".contact").value.toLowerCase();
 
         if (test.length < 0) {
             document.querySelector(".errorMsg").innerHTML = "Please Enter an Email";
