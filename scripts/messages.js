@@ -16,7 +16,7 @@ dataRef2.on('value', (snapshot) => {
     if (allContacts != null) {
         var tempContact = document.querySelector(".dmItem");
 
-        if (typeof(tempContact) == "undefined" || typeof(tempContact) == null) {
+        if (typeof (tempContact) == "undefined" || typeof (tempContact) == null) {
             $(".chat").hide();
         } else {
             openChat(users[allContacts[entityObj.id].contacts[0]].id)
@@ -38,10 +38,10 @@ dataRef.on('value', (snapshot) => {
     const data = snapshot.val();
     chats = data;
 
-    if(chats != null) {
+    if (chats != null) {
         var chatID = (parseInt(entityObj.id.slice(0, 15)) + parseInt(document.querySelector(".topBar").id.slice(0, 15))).toString();
 
-        loadChat(document.querySelector(".topBar").id, 
+        loadChat(document.querySelector(".topBar").id,
             Object.values(chats[chatID].deleted),
             Object.values(chats[chatID].ids),
             Object.values(chats[chatID].images),
@@ -62,39 +62,87 @@ function openChat(targetID) {
 function loadChat(targetID, deleted, ids, images, messages, names, reactions, times) {
     $(".messages").html("");
 
-    for(i = 0; i < messages.length; i++) {
+    for (i = 0; i < messages.length; i++) {
         var message = document.createElement("div");
         message.classList.add("message");
 
-        if(ids[i] == entityObj.id) {
+        if (ids[i] == entityObj.id) {
             message.id = "user";
         }
 
-        var messageText = document.createElement("div");
-        messageText.classList.add("messageText");
-        messageText.innerHTML = window.atob(messages[i]);
+        if (!JSON.parse(deleted[i])) {
+            var messageText = document.createElement("div");
+            messageText.classList.add("messageText");
+            messageText.innerHTML = window.atob(messages[i]);
 
-        if(ids[i] != entityObj.id) {
-            var messageDetails = document.createElement("div");
-            messageDetails.classList.add("messageDetails");
+            if (ids[i] != entityObj.id) {
+                var messageDetails = document.createElement("div");
+                messageDetails.classList.add("messageDetails");
 
-            var messageName = document.createElement("div");
-            messageName.classList.add("messageName");
-            messageName.innerHTML = names[i];
+                var messageName = document.createElement("div");
+                messageName.classList.add("messageName");
+                messageName.innerHTML = names[i];
 
-            messageDetails.appendChild(messageName);
+                messageDetails.appendChild(messageName);
 
-            var messageImage = document.createElement("div");
-            messageImage.classList.add("messageImage");
-            messageImage.style.backgroundImage = "url(" + images[i] + ")";
+                var messageImage = document.createElement("div");
+                messageImage.classList.add("messageImage");
+                messageImage.style.backgroundImage = "url(" + images[i] + ")";
 
-            messageDetails.appendChild(messageImage);
+                messageDetails.appendChild(messageImage);
 
-            message.appendChild(messageDetails);
+                message.appendChild(messageDetails);
+            }
+
+            message.appendChild(messageText);
+        } else {
+            message.style.display = "none";
         }
-
-        message.appendChild(messageText);
 
         document.querySelector(".messages").appendChild(message);
     }
 }
+
+function sendMessage(message, targetID) {
+    if (message.length > 0) {
+        var chatID = (parseInt(entityObj.id.slice(0, 15)) + parseInt(targetID.slice(0, 15))).toString();
+
+        var deleted = Object.values(chats[chatID].deleted);
+        var ids = Object.values(chats[chatID].ids);
+        var images = Object.values(chats[chatID].images);
+        var messages = Object.values(chats[chatID].messages);
+        var names = Object.values(chats[chatID].names);
+        var reactions = Object.values(chats[chatID].reactions);
+        var times = Object.values(chats[chatID].times);
+
+        deleted.push(JSON.stringify(false));
+        ids.push(entityObj.id);
+        images.push(entityObj.image);
+        messages.push(window.btoa(message));
+        names.push(entityObj.name);
+        reactions.push("none");
+        times.push(Date.now())
+
+        firebase.database().ref('messages/' + (parseInt(entityObj.id.slice(0, 15)) + parseInt(target.slice(0, 15))).toString()).set({
+            messages: messages,
+            images: images,
+            names: names,
+            ids: ids,
+            times: times,
+            deleted: deleted,
+            reactions: reactions,
+        });
+
+        loadChat();
+    }
+}
+
+document.querySelector(".sendBtn").addEventListener("click", function () {
+    sendMessage(document.getElementById("userText").value, document.querySelector(".topBar").id);
+});
+
+window.onkeypress = function (event) {
+    if (event.keyCode == "13" && document.getElementById("userText").value.length > 0) {
+        sendMessage(document.getElementById("userText").value, document.querySelector(".topBar").id);
+    }
+};
