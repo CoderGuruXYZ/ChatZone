@@ -302,6 +302,10 @@ document.getElementById("userText").oninput = function () {
         firebase.database().ref('typing/' + JSON.parse(localStorage.entity).id).set({
             isTyping: JSON.stringify(false),
         });
+    } else {
+        firebase.database().ref('typing/' + JSON.parse(localStorage.entity).id).set({
+            isTyping: JSON.stringify(true),
+        });
     }
 }
 
