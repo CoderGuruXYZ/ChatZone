@@ -144,7 +144,7 @@
     color: green;
 
     right: 20px;
-    top: 50%;
+    top: calc(3vh + 3.75%);
 }
 
 .messages {
