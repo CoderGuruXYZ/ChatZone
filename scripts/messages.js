@@ -151,10 +151,17 @@ function loadChat(targetID, deleted, ids, images, messagesARRAY, names, reaction
         });
     }
 
+    var allInfosUser = document.querySelectorAll(".messageInfoUser");
+    for (i = 0; i < allInfosUser.length; i++) {
+        allInfosUser[i].addEventListener("click", function () {
+            document.getElementById("popup" + this.id).style.display = "block";
+        });
+    }
+
     var allDels = document.querySelectorAll(".messagePopupPart");
     for (i = 0; i < allDels.length; i++) {
         allDels[i].addEventListener("click", function () {
-            var temp = split_at_index(allDels[i].id, 7);
+            var temp = split_at_index(this.id, 7);
             var parts = temp.split(",");
 
             var deleted = Object.values(chats[chatID].deleted);
@@ -167,7 +174,7 @@ function loadChat(targetID, deleted, ids, images, messagesARRAY, names, reaction
                 deleted: deleted,
             });
 
-            document.getElementById("popup" + parts[1]).style.display = "block";
+            document.getElementById("popup" + parts[1]).style.display = "none";
 
             loadChat(document.querySelector(".topBar").id,
                 Object.values(chats[chatID].deleted),
