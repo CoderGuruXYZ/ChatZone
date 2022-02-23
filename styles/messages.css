@@ -436,9 +436,11 @@
 
     color: whitesmoke;
 
-    right: 3vh;
+    right: 2vh;
 
     border-radius: 15px;
+
+    color: red;
 
     background-color: rgb(55, 55, 55)
 }
