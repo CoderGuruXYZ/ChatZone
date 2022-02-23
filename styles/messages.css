@@ -432,9 +432,13 @@
 .messagePopupPart {
     padding: 1.5vh;
 
+    position: absolute;
+
     color: whitesmoke;
 
-    right: 0;
+    right: 3vh;
+
+    border-radius: 15px;
 
     background-color: rgb(55, 55, 55)
 }
