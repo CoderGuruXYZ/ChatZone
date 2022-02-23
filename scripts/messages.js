@@ -27,6 +27,9 @@ dataRef2.on('value', (snapshot) => {
         for (i = 0; i < allItems.length; i++) {
             allItems[i].addEventListener("click", function () {
                 openChat(this.id);
+
+                var chatID = (parseInt(entityObj.id.slice(0, 15)) + parseInt(document.querySelector(".topBar").id.slice(0, 15))).toString();
+
                 loadChat(document.querySelector(".topBar").id,
                     Object.values(chats[chatID].deleted),
                     Object.values(chats[chatID].ids),
