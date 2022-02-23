@@ -225,7 +225,7 @@
 .messageInfo {
     position: absolute;
 
-    left: 5px;
+    left: calc(1.5vh + 5px);
 
     font-size: 18px;
 
@@ -238,7 +238,7 @@
 .messageInfoUser {
     position: absolute;
 
-    right: 50px;
+    right: calc(1.5vh + 5px);
 
     font-size: 18px;
 
