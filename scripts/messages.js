@@ -61,7 +61,6 @@ function openChat(targetID) {
 
 function loadChat(targetID, deleted, ids, images, messagesARRAY, names, reactions, times) {
     $(".messages").html("");
-    console.log(messagesARRAY);
 
     for (i = 0; i < messagesARRAY.length; i++) {
         var message = document.createElement("div");
@@ -134,7 +133,17 @@ function sendMessage(message, targetID) {
             reactions: reactions,
         });
 
-        loadChat();
+        var chatID = (parseInt(entityObj.id.slice(0, 15)) + parseInt(document.querySelector(".topBar").id.slice(0, 15))).toString();
+
+        loadChat(document.querySelector(".topBar").id,
+            Object.values(chats[chatID].deleted),
+            Object.values(chats[chatID].ids),
+            Object.values(chats[chatID].images),
+            Object.values(chats[chatID].messages),
+            Object.values(chats[chatID].names),
+            Object.values(chats[chatID].reactions),
+            Object.values(chats[chatID].times)
+        );
     }
 }
 
