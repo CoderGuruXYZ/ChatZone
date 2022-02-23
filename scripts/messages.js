@@ -154,7 +154,7 @@ function loadChat(targetID, deleted, ids, images, messagesARRAY, names, reaction
     var allInfosUser = document.querySelectorAll(".messageInfoUser");
     for (i = 0; i < allInfosUser.length; i++) {
         allInfosUser[i].addEventListener("click", function () {
-            if(document.getElementById("popup" + this.id).style.display == "block") {
+            if (document.getElementById("popup" + this.id).style.display == "block") {
                 document.getElementById("popup" + this.id).style.display = "none";
             } else {
                 document.getElementById("popup" + this.id).style.display = "block";
@@ -168,17 +168,29 @@ function loadChat(targetID, deleted, ids, images, messagesARRAY, names, reaction
             var temp = split_at_index(this.id, 7);
             var parts = temp.split(",");
 
-            if(parts[0].includes("user")) {
+            if (parts[0].includes("user")) {
                 var entityObj2 = JSON.parse(localStorage.entity);
 
                 var chatID = (parseInt(entityObj2.id.slice(0, 15)) + parseInt(document.querySelector(".topBar").id.slice(0, 15))).toString();
 
                 var deleted = Object.values(chats[chatID].deleted);
+                var ids = Object.values(chats[chatID].ids);
+                var images = Object.values(chats[chatID].images);
+                var messages = Object.values(chats[chatID].messages);
+                var names = Object.values(chats[chatID].names);
+                var reactions = Object.values(chats[chatID].reactions);
+                var times = Object.values(chats[chatID].times);
 
-                deleted[parseInt(parts[1])] = JSON.stringify(true);
+                deleted[parseInt(parts[1])] = JSON.parse(true);
 
                 firebase.database().ref('messages/' + chatID).set({
+                    messages: messages,
+                    images: images,
+                    names: names,
+                    ids: ids,
+                    times: times,
                     deleted: deleted,
+                    reactions: reactions,
                 });
 
                 document.getElementById("popup" + parts[1]).style.display = "none";
@@ -197,10 +209,10 @@ function loadChat(targetID, deleted, ids, images, messagesARRAY, names, reaction
     }
 }
 
-window.addEventListener("click", function(event) {
-    if(!event.target.id.includes("popup")) {
+window.addEventListener("click", function (event) {
+    if (!event.target.id.includes("popup")) {
         var allPopups = this.document.querySelectorAll(".messagePopup");
-        for(i = 0; i < allPopups.length; i++) {
+        for (i = 0; i < allPopups.length; i++) {
             allPopups[i].style.display = "none;"
         }
     }
