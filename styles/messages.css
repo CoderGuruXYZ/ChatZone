@@ -236,6 +236,8 @@
     color: gray;
 
     margin-top: 15px;
+
+    padding-right: auto;
 }
 
 .messageInfoUser {
@@ -252,6 +254,8 @@
     color: gray;
 
     margin-top: 15px;
+
+    padding-left: auto;
 }
 
 .chatBox {
