@@ -125,7 +125,7 @@ function loadChat(targetID, deleted, ids, images, messagesARRAY, names, reaction
             popupPart.classList.add("messagePopupPart");
             popupPart.innerHTML = "Delete Message";
             if (ids[i] == entityObj.id) {
-                popupPart.id = "userdel" = i.toString();
+                popupPart.id = "userdel" + i.toString();
             } else {
                 popupPart.id = "contdel" + i.toString();
             }
