@@ -147,6 +147,8 @@
     padding: 3vh;
 
     background-color: rgb(30, 30, 30);
+
+    position: relative;
 }
 
 .message {
@@ -158,8 +160,6 @@
     margin-bottom: 15px;
 
     margin-left: 5px;
-
-    position: relative;
 }
 
 .message:last-child {
