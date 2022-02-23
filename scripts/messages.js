@@ -259,6 +259,10 @@ function sendMessage(message, targetID) {
 
         var chatID = (parseInt(entityObj.id.slice(0, 15)) + parseInt(document.querySelector(".topBar").id.slice(0, 15))).toString();
 
+        firebase.database().ref('typing/' + JSON.parse(localStorage.entity).id).set({
+            isTyping: JSON.stringify(false),
+        });
+
         loadChat(document.querySelector(".topBar").id,
             Object.values(chats[chatID].deleted),
             Object.values(chats[chatID].ids),
