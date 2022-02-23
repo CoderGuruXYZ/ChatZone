@@ -164,9 +164,9 @@ function loadChat(targetID, deleted, ids, images, messagesARRAY, names, reaction
             var temp = split_at_index(this.id, 7);
             var parts = temp.split(",");
 
-            var deleted = Object.values(chats[chatID].deleted);
-
             var chatID = (parseInt(entityObj.id.slice(0, 15)) + parseInt(document.querySelector(".topBar").id.slice(0, 15))).toString();
+
+            var deleted = Object.values(chats[chatID].deleted);
 
             deleted[parseInt(parts[1])] = JSON.stringify(true);
 
@@ -188,6 +188,15 @@ function loadChat(targetID, deleted, ids, images, messagesARRAY, names, reaction
         })
     }
 }
+
+window.addEventListener("click", function(event) {
+    if(!event.target.id.includes("popup")) {
+        var allPopups = this.document.querySelectorAll(".messagePopup");
+        for(i = 0; i < allPopups.length; i++) {
+            allPopups[i].style.display = "none;"
+        }
+    }
+});
 
 function split_at_index(value, index) {
     return value.substring(0, index) + "," + value.substring(index);

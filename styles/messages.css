@@ -428,3 +428,9 @@
     
     position: absolute;
 }
+
+.messagePopupPart {
+    padding: 1.5vh;
+
+    color: whitesmoke;
+}
