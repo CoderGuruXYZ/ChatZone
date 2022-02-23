@@ -414,3 +414,7 @@
 .message:hover .messageInfo {
     display: block;
 }
+
+.message#user:hover .messageInfoUser {
+    display: block;
+}
