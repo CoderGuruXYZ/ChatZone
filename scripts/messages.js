@@ -7,6 +7,14 @@ dataRef.on('value', (snapshot) => {
     users = data;
 });
 
+var chats;
+var dataRef = firebase.database().ref('messages');
+dataRef.on('value', (snapshot) => {
+    const data = snapshot.val();
+    chats = data;
+});
+
+
 var allContacts;
 var dataRef2 = firebase.database().ref('contacts');
 dataRef2.on('value', (snapshot) => {
@@ -35,4 +43,8 @@ dataRef2.on('value', (snapshot) => {
 function openChat(targetID) {
     $(".chat").show();
     $(".topBar").html(users[targetID].name);
+}
+
+function loadChat(targetID) {
+
 }

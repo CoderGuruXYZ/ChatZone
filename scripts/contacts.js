@@ -189,6 +189,8 @@ function addNewContact() {
                 names: [entityObj.name],
                 ids: [entityObj.id],
                 times: [Date.now()],
+                deleted: [JSON.stringify(false)],
+                reactions: ["none"],
             });
 
             $(".overlay").hide();
