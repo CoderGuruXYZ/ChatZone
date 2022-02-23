@@ -225,27 +225,25 @@
 .messageInfo {
     position: absolute;
 
-    left: calc(1.5vh + 5px);
+    left: calc(1vh + 5px);
 
     font-size: 18px;
 
     color: gray;
 
-    top: auto;
-    bottom: auto;
+    top: 20px;align-self: start;
 }
 
 .messageInfoUser {
     position: absolute;
 
-    right: calc(1.5vh + 5px);
+    right: calc(1vh + 5px);
 
     font-size: 18px;
 
     color: gray;
 
-    top: auto;
-    bottom: auto;
+    top: 20px;
 }
 
 .chatBox {
