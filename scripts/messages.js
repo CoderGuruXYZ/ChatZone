@@ -299,7 +299,7 @@ dataRef.on('value', (snapshot) => {
     const data = snapshot.val();
     typing = data;
 
-    if(JSON.parse(typing)) {
+    if(JSON.parse(typing.isTyping)) {
         $(".isTyping").show();
     } else {
         $(".isTyping").hide();
