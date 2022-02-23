@@ -143,8 +143,8 @@
 
     color: green;
 
-    right: 20px;
-    top: calc(3vh + 3.75%);
+    right: calc(3vh + 10px);
+    top: calc(3vh + 2%);
 }
 
 .messages {
