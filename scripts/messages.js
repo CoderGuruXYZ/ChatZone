@@ -193,7 +193,10 @@ function loadChat(targetID, deleted, ids, images, messagesARRAY, names, reaction
                     reactions: reactions,
                 });
 
-                document.getElementById("popup" + parts[1]).style.display = "none";
+                var allPopups = document.querySelectorAll(".messagePopup");
+                for (i = 0; i < allPopups.length; i++) {
+                    allPopups[i].style.display = "none;"
+                }
 
                 loadChat(document.querySelector(".topBar").id,
                     Object.values(chats[chatID].deleted),

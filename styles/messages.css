@@ -433,4 +433,8 @@
     padding: 1.5vh;
 
     color: whitesmoke;
+
+    right: 0;
+
+    background-color: rgb(55, 55, 55)
 }
