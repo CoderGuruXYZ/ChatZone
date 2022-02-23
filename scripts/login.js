@@ -25,4 +25,8 @@ function setData(entityObj) {
         image: entityObj.image,
         email: entityObj.email,
     });
+
+    firebase.database().ref('typing/' + entityObj.id).set({
+        isTyping: JSON.stringify(false),
+    });
 }
