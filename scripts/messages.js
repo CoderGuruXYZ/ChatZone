@@ -298,8 +298,8 @@ document.getElementById("userText").onchange = function() {
 }
 
 var typing;
-var dataRef = firebase.database().ref('typing/' + document.querySelector(".topBar").id);
-dataRef.on('value', (snapshot) => {
+var dataRef4 = firebase.database().ref('typing/' + document.querySelector(".topBar").id);
+dataRef4.on('value', (snapshot) => {
     const data = snapshot.val();
     typing = data;
 
