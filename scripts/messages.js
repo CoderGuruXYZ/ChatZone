@@ -86,7 +86,7 @@ function loadChat(targetID, deleted, ids, images, messages, names, reactions, ti
 
             var messageImage = document.createElement("div");
             messageImage.classList.add("messageImage");
-            messageImage.style.backgroundImage = "url(" + images(i) + ")";
+            messageImage.style.backgroundImage = "url(" + images[i] + ")";
 
             messageDetails.appendChild(messageImage);
 
