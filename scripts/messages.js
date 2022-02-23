@@ -115,7 +115,25 @@ function loadChat(targetID, deleted, ids, images, messagesARRAY, names, reaction
                 messageInfo.classList.add("messageInfo");
             }
             messageInfo.innerHTML = '<i class="fa-solid fa-ellipsis-vertical"></i>';
-            
+            messageInfo.id = i;
+
+            var msgPopup = document.createElement("div");
+            msgPopup.classList.add("messagePopup");
+            msgPopup.id = "popup" + i.toString();
+
+            var popupPart = document.createElement("div");
+            popupPart.classList.add("messagePopupPart");
+            popupPart.innerHTML = "Delete Message";
+            if (ids[i] == entityObj.id) {
+                popupPart.id = "userdel" = i.toString();
+            } else {
+                popupPart.id = "contdel" + i.toString();
+            }
+
+            msgPopup.appendChild(popupPart);
+
+            messageInfo.appendChild(msgPopup);
+
             message.appendChild(messageInfo);
         } else {
             message.style.display = "none";
@@ -125,6 +143,47 @@ function loadChat(targetID, deleted, ids, images, messagesARRAY, names, reaction
     }
 
     document.querySelector(".messages").scrollTop = document.querySelector(".messages").scrollHeight - document.querySelector(".messages").clientHeight
+
+    var allInfos = document.querySelectorAll(".messageInfo");
+    for (i = 0; i < allInfos.length; i++) {
+        allInfos[i].addEventListener("click", function () {
+            document.getElementById("popup" + this.id).style.display = "block";
+        });
+    }
+
+    var allDels = document.querySelectorAll(".messagePopupPart");
+    for (i = 0; i < allDels.length; i++) {
+        allDels[i].addEventListener("click", function () {
+            var temp = split_at_index(allDels[i].id, 7);
+            var parts = temp.split(",");
+
+            var deleted = Object.values(chats[chatID].deleted);
+
+            var chatID = (parseInt(entityObj.id.slice(0, 15)) + parseInt(document.querySelector(".topBar").id.slice(0, 15))).toString();
+
+            deleted[parseInt(parts[1])] = JSON.stringify(true);
+
+            firebase.database().ref('messages/' + chatID).set({
+                deleted: deleted,
+            });
+
+            document.getElementById("popup" + parts[1]).style.display = "block";
+
+            loadChat(document.querySelector(".topBar").id,
+                Object.values(chats[chatID].deleted),
+                Object.values(chats[chatID].ids),
+                Object.values(chats[chatID].images),
+                Object.values(chats[chatID].messages),
+                Object.values(chats[chatID].names),
+                Object.values(chats[chatID].reactions),
+                Object.values(chats[chatID].times)
+            );
+        })
+    }
+}
+
+function split_at_index(value, index) {
+    return value.substring(0, index) + "," + value.substring(index);
 }
 
 function sendMessage(message, targetID) {
