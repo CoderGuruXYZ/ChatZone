@@ -297,6 +297,14 @@ $(function() {
     });
 });
 
+document.getElementById("userText").oninput = function () {  
+    if(document.getElementById("userText").value.length < 1) {
+        firebase.database().ref('typing/' + JSON.parse(localStorage.entity).id).set({
+            isTyping: JSON.stringify(false),
+        });
+    }
+}
+
 var typing;
 var dataRef4 = firebase.database().ref('typing/' + document.querySelector(".topBar").id);
 dataRef4.on('value', (snapshot) => {
