@@ -154,7 +154,11 @@ function loadChat(targetID, deleted, ids, images, messagesARRAY, names, reaction
     var allInfosUser = document.querySelectorAll(".messageInfoUser");
     for (i = 0; i < allInfosUser.length; i++) {
         allInfosUser[i].addEventListener("click", function () {
-            document.getElementById("popup" + this.id).style.display = "block";
+            if(document.getElementById("popup" + this.id).style.display == "block") {
+                document.getElementById("popup" + this.id).style.display = "none";
+            } else {
+                document.getElementById("popup" + this.id).style.display = "block";
+            }
         });
     }
 
