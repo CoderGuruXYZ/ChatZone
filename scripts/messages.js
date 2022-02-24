@@ -47,20 +47,25 @@ dataRef2.on('value', (snapshot) => {
         var allDelContacts = document.querySelectorAll(".dmItemDelete")
         for (i = 0; i < allDelContacts.length; i++) {
             allDelContacts[i].addEventListener("click", function () {
-                var parts = this.id.split(",");
+                if (confirm("Are You Sure You Want to Delete this Contact?")) {
+                    var parts = this.id.split(",");
 
-                var targetID = users[parts[1]];
+                    var targetObj = users[parts[1]];
 
-                console.log(targetID.name);
+                    var entityContacts = allContacts[entityObj.id];
+                    var targetContacts = allContacts[targetObj.id];
 
-                var entityContacts = allContacts[entityObj.id];
-                var targetContacts = allContacts[targetID.id];
+                    entityContacts['contacts'].splice(entityContacts['contacts'].indexOf(targetObj.id));
+                    targetContacts['contacts'].splice(targetContacts['contacts'].indexOf(entityObj.id));
 
-                entityContacts['contacts'].splice(entityContacts['contacts'].indexOf(targetID.id));
-                targetContacts['contacts'].splice(targetContacts['contacts'].indexOf(entityObj.id));
+                    firebase.database().ref('contacts/' + entityObj.id).set({
+                        contacts: entityContacts,
+                    });
 
-                console.log(entityContacts);
-                console.log(targetContacts);
+                    firebase.database().ref('contacts/' + targetObj.id).set({
+                        contacts: targetContacts,
+                    });
+                }
             });
         }
     }
