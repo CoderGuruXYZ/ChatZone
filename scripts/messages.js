@@ -49,14 +49,14 @@ dataRef2.on('value', (snapshot) => {
             allDelContacts[i].addEventListener("click", function () {
                 var parts = this.id.split(",");
 
-                var targetID = users[parts[1]].name;
+                var targetID = users[parts[1]];
 
-                console.log(targetID);
+                console.log(targetID.name);
 
                 var entityContacts = allContacts[entityObj.id];
-                var targetContacts = allContacts[targetID];
+                var targetContacts = allContacts[targetID.id];
 
-                entityContacts['contacts'].splice(entityContacts['contacts'].indexOf(targetID));
+                entityContacts['contacts'].splice(entityContacts['contacts'].indexOf(targetID.id));
                 targetContacts['contacts'].splice(targetContacts['contacts'].indexOf(entityObj.id));
 
                 console.log(entityContacts);
