@@ -47,7 +47,7 @@ dataRef2.on('value', (snapshot) => {
         var allDelContacts = document.querySelectorAll(".dmItemDelete")
 for(i = 0; i < allDelContacts.length; i++) {
     allDelContacts[i].addEventListener("click", function() {
-        var parts = this.id.split("");
+        var parts = this.id.split(",");
     
         var targetID = users[parts[1]].name;
         alert(targetID);
