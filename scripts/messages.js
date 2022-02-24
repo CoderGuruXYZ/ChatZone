@@ -58,13 +58,23 @@ dataRef2.on('value', (snapshot) => {
                     entityContacts['contacts'].splice(entityContacts['contacts'].indexOf(targetObj.id));
                     targetContacts['contacts'].splice(targetContacts['contacts'].indexOf(entityObj.id));
 
-                    firebase.database().ref('contacts/' + entityObj.id).set({
-                        contacts: entityContacts,
-                    });
+                    if(entityContacts.length < 1) {
+                        $(".messages").html("");
+                    } else {
+                        firebase.database().ref('contacts/' + entityObj.id).set({
+                            contacts: entityContacts,
+                        });
+                    }
 
-                    firebase.database().ref('contacts/' + targetObj.id).set({
-                        contacts: targetContacts,
-                    });
+                    if(targetContacts.length < 1) { 
+                        $(".messages").html("");
+                    } else {
+                        firebase.database().ref('contacts/' + targetObj.id).set({
+                            contacts: targetContacts,
+                        });
+                    }
+
+                    loadContacts();
                 }
             });
         }
