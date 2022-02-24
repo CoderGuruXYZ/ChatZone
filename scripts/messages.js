@@ -51,6 +51,8 @@ dataRef2.on('value', (snapshot) => {
 
                 var targetID = users[parts[1]].name;
 
+                console.log(targetID);
+
                 var entityContacts = allContacts[entityObj.id];
                 var targetContacts = allContacts[targetID];
 
