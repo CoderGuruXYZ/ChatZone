@@ -262,3 +262,10 @@ function loadContacts() {
         }
     });
 }
+
+document.querySelectorAll(".dmItemDelete").addEventListener("click", function() {
+    var parts = this.id.split("");
+
+    var targetID = users[parts[1]].name;
+    alert(targetID);
+});
