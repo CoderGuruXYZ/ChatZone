@@ -286,7 +286,7 @@ window.onkeypress = function (event) {
 };
 
 $(function() {
-    $('input, textarea, select').focus(function() {
+    $('#userText').focus(function() {
         firebase.database().ref('typing/' + JSON.parse(localStorage.entity).id).set({
             isTyping: JSON.stringify(true),
         });
