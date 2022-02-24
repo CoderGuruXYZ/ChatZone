@@ -217,6 +217,7 @@ function loadContacts() {
         var dmItemDelete = document.createElement("div");
         dmItemDelete.classList.add("dmItemDelete");
         dmItemDelete.id = "del," + id;
+        dmItemDelete.innerHTML = '<i class="fa-solid fa-trash"></i>';
 
         dmItem.appendChild(dmItemDelete);
 
