@@ -86,6 +86,8 @@
     cursor: pointer;
 
     margin-bottom: 3vh;
+
+    position: relative;
 }
 
 .dmItem:last-child {
@@ -104,6 +106,25 @@
     font-size: 16px;
 
     margin-top: 3px;
+}
+
+.dmItemDelete {
+    position: absolute;
+
+    right: 10px;
+    top: 10px;
+
+    font-size: 20px;
+
+    color: red;
+
+    cursor: pointer;
+
+    display: none;
+}
+
+.dmItem:hover .dmItemDelete {
+    display: block;
 }
 
 .chat {

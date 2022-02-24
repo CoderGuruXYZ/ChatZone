@@ -214,6 +214,12 @@ function loadContacts() {
         dmItem.classList.add("dmItem");
         dmItem.id = id;
 
+        var dmItemDelete = document.createElement("div");
+        dmItemDelete.classList.add("dmItemDelete");
+        dmItemDelete.id = "del," + id;
+
+        dmItem.appendChild(dmItemDelete);
+
         var dmItemName = document.createElement("div");
         dmItemName.classList.add("dmItemName");
         dmItemName.innerHTML = name;
