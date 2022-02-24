@@ -26,7 +26,7 @@ dataRef2.on('value', (snapshot) => {
 
         for (i = 0; i < allItems.length; i++) {
             allItems[i].addEventListener("click", function (event) {
-                if(!event.target.id.includes("del")) {
+                if (!event.target.id.includes("del")) {
                     openChat(this.id);
 
                     var chatID = (parseInt(entityObj.id.slice(0, 15)) + parseInt(document.querySelector(".topBar").id.slice(0, 15))).toString();
@@ -40,19 +40,27 @@ dataRef2.on('value', (snapshot) => {
                         Object.values(chats[chatID].reactions),
                         Object.values(chats[chatID].times)
                     );
-                }    
+                }
             });
         }
 
         var allDelContacts = document.querySelectorAll(".dmItemDelete")
-for(i = 0; i < allDelContacts.length; i++) {
-    allDelContacts[i].addEventListener("click", function() {
-        var parts = this.id.split(",");
-    
-        var targetID = users[parts[1]].name;
-        alert(targetID);
-    });
-}
+        for (i = 0; i < allDelContacts.length; i++) {
+            allDelContacts[i].addEventListener("click", function () {
+                var parts = this.id.split(",");
+
+                var targetID = users[parts[1]].name;
+
+                var entityContacts = allContacts[entityObj.id];
+                var targetContacts = allContacts[targetID];
+
+                entityContacts['contacts'].splice(entityContacts['contacts'].indexOf(targetID));
+                targetContacts['contacts'].splice(targetContacts['contacts'].indexOf(entityObj.id));
+
+                console.log(entityContacts);
+                console.log(targetContacts);
+            });
+        }
     }
 });
 
@@ -297,20 +305,20 @@ window.onkeypress = function (event) {
     }
 };
 
-$(function() {
-    $('#userText').focus(function() {
+$(function () {
+    $('#userText').focus(function () {
         firebase.database().ref('typing/' + JSON.parse(localStorage.entity).id).set({
             isTyping: JSON.stringify(true),
         });
-    }).blur(function(){
+    }).blur(function () {
         firebase.database().ref('typing/' + JSON.parse(localStorage.entity).id).set({
             isTyping: JSON.stringify(false),
         });
     });
 });
 
-document.getElementById("userText").oninput = function () {  
-    if(document.getElementById("userText").value.length < 1) {
+document.getElementById("userText").oninput = function () {
+    if (document.getElementById("userText").value.length < 1) {
         firebase.database().ref('typing/' + JSON.parse(localStorage.entity).id).set({
             isTyping: JSON.stringify(false),
         });
@@ -327,7 +335,7 @@ dataRef4.on('value', (snapshot) => {
     const data = snapshot.val();
     typing = data;
 
-    if(JSON.parse(typing[document.querySelector(".topBar").id].isTyping)) {
+    if (JSON.parse(typing[document.querySelector(".topBar").id].isTyping)) {
         $(".isTyping").show();
     } else {
         $(".isTyping").hide();
