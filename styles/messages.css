@@ -242,6 +242,7 @@
 
 .messageText {
     width: fit-content;
+    max-width: inherit;
 
     overflow-wrap: break-word;
 
