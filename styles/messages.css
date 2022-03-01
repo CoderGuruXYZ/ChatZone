@@ -131,6 +131,8 @@
     width: calc(65% - 3vh);
     height: 100%;
 
+    max-width: 60%;
+
     border-radius: 20px;
 
     padding: 3vh;
@@ -173,8 +175,6 @@
 .messages {
     height: 75%;
     width: 100%;
-
-    max-width: calc(65% - 9vh);
 
     overflow-y: auto;
 
