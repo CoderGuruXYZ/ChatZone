@@ -74,7 +74,7 @@ dataRef2.on('value', (snapshot) => {
                         });
                     }
 
-                    loadContacts();
+                    window.location.reload();
                 }
             });
         }
