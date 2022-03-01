@@ -1,5 +1,5 @@
 .dmWindow {
-    width: 90%;
+    width: calc(100% - 9vh);
     height: 95%;
 
     border-radius: 20px;
