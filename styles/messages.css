@@ -189,7 +189,7 @@
     display: flex;
     
     width: fit-content;
-    max-width: 80%;
+    max-width: 60%;
 
     margin-bottom: 15px;
 
@@ -242,7 +242,7 @@
 
 .messageText {
     width: fit-content;
-    max-width: 80%;
+    max-width: 100%;
 
     overflow-wrap: break-word;
 
