@@ -349,12 +349,14 @@ document.getElementById("userText").oninput = function () {
 var typing;
 var dataRef4 = firebase.database().ref('typing/' + document.querySelector(".topBar").id);
 dataRef4.on('value', (snapshot) => {
-    const data = snapshot.val();
-    typing = data;
+    if(allContacts != null) {
+        const data = snapshot.val();
+        typing = data;
 
-    if (JSON.parse(typing[document.querySelector(".topBar").id].isTyping)) {
-        $(".isTyping").show();
-    } else {
-        $(".isTyping").hide();
+        if (JSON.parse(typing[document.querySelector(".topBar").id].isTyping)) {
+            $(".isTyping").show();
+        } else {
+            $(".isTyping").hide();
+        }
     }
 });
