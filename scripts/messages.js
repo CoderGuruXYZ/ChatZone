@@ -58,7 +58,7 @@ dataRef2.on('value', (snapshot) => {
                     entityContacts['contacts'].splice(entityContacts['contacts'].indexOf(targetObj.id));
                     targetContacts['contacts'].splice(targetContacts['contacts'].indexOf(entityObj.id));
 
-                    if(entityContacts.length < 1) {
+                    if (entityContacts.length < 1) {
                         $(".messages").html("");
                     } else {
                         firebase.database().ref('contacts/' + entityObj.id).set({
@@ -66,7 +66,7 @@ dataRef2.on('value', (snapshot) => {
                         });
                     }
 
-                    if(targetContacts.length < 1) { 
+                    if (targetContacts.length < 1) {
                         $(".messages").html("");
                     } else {
                         firebase.database().ref('contacts/' + targetObj.id).set({
@@ -349,14 +349,25 @@ document.getElementById("userText").oninput = function () {
 var typing;
 var dataRef4 = firebase.database().ref('typing/' + document.querySelector(".topBar").id);
 dataRef4.on('value', (snapshot) => {
-    if(allContacts != null) {
+    if (allContacts != null) {
         const data = snapshot.val();
         typing = data;
 
-        if (JSON.parse(typing[document.querySelector(".topBar").id].isTyping)) {
-            $(".isTyping").show();
+        if (typing == null) {
+            firebase.database().ref('typing/' + JSON.parse(localStorage.entity).id).set({
+                isTyping: JSON.stringify(false),
+            });
+
+            firebase.database().ref('typing/' + document.querySelector(".topBar").id).set({
+                isTyping: JSON.stringify(false),
+            });
         } else {
-            $(".isTyping").hide();
+
+            if (JSON.parse(typing[document.querySelector(".topBar").id].isTyping)) {
+                $(".isTyping").show();
+            } else {
+                $(".isTyping").hide();
+            }
         }
     }
 });
