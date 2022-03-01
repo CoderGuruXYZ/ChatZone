@@ -7,6 +7,27 @@ dataRef.on('value', (snapshot) => {
     users = data;
 });
 
+var chats;
+var dataRef = firebase.database().ref('messages');
+dataRef.on('value', (snapshot) => {
+    const data = snapshot.val();
+    chats = data;
+
+    var chatID = (parseInt(entityObj.id.slice(0, 15)) + parseInt(document.querySelector(".topBar").id.slice(0, 15))).toString();
+
+    if (chats[chatID].messages != null) {
+        loadChat(document.querySelector(".topBar").id,
+            Object.values(chats[chatID].deleted),
+            Object.values(chats[chatID].ids),
+            Object.values(chats[chatID].images),
+            Object.values(chats[chatID].messages),
+            Object.values(chats[chatID].names),
+            Object.values(chats[chatID].reactions),
+            Object.values(chats[chatID].times)
+        );
+    }
+});
+
 var allContacts;
 var dataRef2 = firebase.database().ref('contacts');
 dataRef2.on('value', (snapshot) => {
@@ -74,31 +95,17 @@ dataRef2.on('value', (snapshot) => {
                         });
                     }
 
+                    var delMessagesIdx = parseInt((entityObj.id).slice(0, 15)) + parseInt((document.querySelector(".topBar").id).slice(0, 15));
+                    var delMessagesRef = chats[delMessagesIdx];
+
+                    firebase.database().ref('messages/' + delMessagesIdx).set({
+                        empty: "",
+                    });
+
                     window.location.reload();
                 }
             });
         }
-    }
-});
-
-var chats;
-var dataRef = firebase.database().ref('messages');
-dataRef.on('value', (snapshot) => {
-    const data = snapshot.val();
-    chats = data;
-
-    if (chats != null) {
-        var chatID = (parseInt(entityObj.id.slice(0, 15)) + parseInt(document.querySelector(".topBar").id.slice(0, 15))).toString();
-
-        loadChat(document.querySelector(".topBar").id,
-            Object.values(chats[chatID].deleted),
-            Object.values(chats[chatID].ids),
-            Object.values(chats[chatID].images),
-            Object.values(chats[chatID].messages),
-            Object.values(chats[chatID].names),
-            Object.values(chats[chatID].reactions),
-            Object.values(chats[chatID].times)
-        );
     }
 });
 
