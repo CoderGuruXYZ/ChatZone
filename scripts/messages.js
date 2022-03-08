@@ -9,7 +9,7 @@ dataRef.on('value', (snapshot) => {
 
 var chats;
 var dataRef = firebase.database().ref('messages');
-dataRef.on('value', (snapshot) => {
+dataRef.once('value', (snapshot) => {
     const data = snapshot.val();
     chats = data;
 
