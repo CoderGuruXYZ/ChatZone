@@ -82,7 +82,7 @@ nav {
 }
 
 .signout, .collapse {
-    width: calc(350px - 15vh);
+    width: calc(350px - 6vh);
 
     display: flex;
     justify-content: center;

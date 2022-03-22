@@ -7,13 +7,13 @@ if (window.location.href.includes("login.html")) {
         window.location.href = "home.html";
     }
 } else if (window.location.href.includes("home.html")) {
-    if (!window.location.href.includes("127")) {
+    if (!window.location.href.includes("127") && !window.location.href.includes("gitpod")) {
         if (!JSON.parse(localStorage.loggedIn)) {
             window.location.href = "login.html";
         }
     }
 } else if (window.location.href.includes("messages.html")) {
-    if (!window.location.href.includes("127")) {
+    if (!window.location.href.includes("127") && !window.location.href.includes("gitpod")) {
         if (!JSON.parse(localStorage.loggedIn)) {
             window.location.href = "login.html";
         }
