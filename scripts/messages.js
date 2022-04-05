@@ -370,7 +370,7 @@ dataRef4.on('value', (snapshot) => {
             });
         } else {
             console.log(typing);
-            if (JSON.parse(typing[document.querySelector(".topBar").id].isTyping)) {
+            if (JSON.parse(typing).isTyping) {
                 $(".isTyping").show();
             } else {
                 $(".isTyping").hide();
