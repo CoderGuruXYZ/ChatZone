@@ -45,7 +45,7 @@ dataRef2.on('value', (snapshot) => {
             $(".chat").hide();
         } else {
             console.log((allContacts[entityObj.id]).contacts.contacts[0]);
-            openChat((allContacts[entityObj.id]).contacts.contacts[0]);
+            openChat((allContacts[entityObj.id]).contacts.contacts[0]);as
         }
 
         var allItems = document.querySelectorAll(".dmItem");
