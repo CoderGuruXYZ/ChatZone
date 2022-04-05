@@ -15,10 +15,6 @@ dataRef.once('value', (snapshot) => {
 
     var chatID = (parseInt(entityObj.id.slice(0, 15)) + parseInt(document.querySelector(".topBar").id.slice(0, 15))).toString();
 
-    console.log(chatID);
-
-    console.log(chats[chatID]);
-
     if (chats[chatID].empty != "") {
         loadChat(document.querySelector(".topBar").id,
             Object.values(chats[chatID].deleted),
@@ -44,8 +40,7 @@ dataRef2.on('value', (snapshot) => {
         if (typeof (tempContact) == "undefined" || typeof (tempContact) == null) {
             $(".chat").hide();
         } else {
-            console.log((allContacts[entityObj.id]).contacts.contacts[0]);
-            openChat((allContacts[entityObj.id]).contacts.contacts[0]);as
+            openChat((allContacts[entityObj.id]).contacts.contacts[0]);
         }
 
         var allItems = document.querySelectorAll(".dmItem");
