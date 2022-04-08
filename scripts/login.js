@@ -29,4 +29,8 @@ function setData(entityObj) {
     firebase.database().ref('typing/' + entityObj.id).set({
         isTyping: JSON.stringify(false),
     });
+
+    firebase.database().ref('contacts/' + entityObj.id).set({
+        contacts: [],
+    });
 }
