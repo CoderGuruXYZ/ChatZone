@@ -30,7 +30,7 @@
 }
 
 .dmWindow.collapsed .dms {
-    width: 25%;
+    width: 30%;
 }
 
 .dmTitle {
@@ -151,7 +151,7 @@
 }
 
 .dmWindow.collapsed .chat {
-    width: calc(75% - 3vh);
+    width: calc(85% - 3vh);
 }
 
 .topBar {
