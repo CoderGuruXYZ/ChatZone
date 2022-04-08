@@ -370,8 +370,8 @@ dataRef4.on('value', (snapshot) => {
                 isTyping: JSON.stringify(false),
             });
         } else {
-            console.log(typing);
-            if (JSON.parse(typing[document.querySelector(".topBar").id].isTyping)) {
+            console.log(isTargetTyping);
+            if (JSON.parse(isTargetTyping)) {
                 $(".isTyping").show();
             } else {
                 $(".isTyping").hide();
