@@ -29,6 +29,10 @@
     background-color: rgb(35, 35, 35);
 }
 
+.dmWindow.collapsed .dms {
+    width: 25%;
+}
+
 .dmTitle {
     width: 100%;
     height: 7.5%;
@@ -144,6 +148,10 @@
     background-color: rgb(40, 40, 40);
 
     position: relative;
+}
+
+.dmWindow.collapsed .chat {
+    width: calc(75% - 3vh);
 }
 
 .topBar {
