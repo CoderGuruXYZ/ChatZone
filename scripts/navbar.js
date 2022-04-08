@@ -86,6 +86,10 @@ function collapseNav() {
         document.getElementById("collapseBtn").innerHTML = '<i class="fa-solid fa-circle-chevron-left"></i>';
         localStorage.setItem("collapse", "uncollapsed");
     }
+
+    if(window.location.href.includes("messages")) {
+        $(".dmWindow").toggleClass("collapsed");
+    }
 }
 
 document.getElementById("collapseBtn").onclick = function () {

@@ -354,11 +354,12 @@ document.getElementById("userText").oninput = function () {
 }
 
 var typing;
-var dataRef4 = firebase.database().ref('typing/' + document.querySelector(".topBar").id);
+var dataRef4 = firebase.database().ref('typing/');
 dataRef4.on('value', (snapshot) => {
     if (allContacts != null) {
         const data = snapshot.val();
         typing = data;
+        var isTargetTyping = typing[document.querySelector(".topBar").id].isTyping;
 
         if (typing == null) {
             firebase.database().ref('typing/' + JSON.parse(localStorage.entity).id).set({

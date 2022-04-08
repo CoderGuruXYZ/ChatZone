@@ -14,6 +14,10 @@
     justify-content: space-between;
 }
 
+.dmWindow.collapsed {
+    width: calc(100% - 75px)
+}
+
 .dms {
     width: 35%;
     height: 100%;
