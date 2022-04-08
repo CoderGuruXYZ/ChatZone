@@ -140,10 +140,10 @@
 }
 
 .chat {
-    width: calc(65% + 3vh);
+    width: calc(65% - 3vh);
     height: 100%;
 
-    /* max-width: 60%; */
+    max-width: 100%;
 
     border-radius: 20px;
 
@@ -155,7 +155,7 @@
 }
 
 .chat.collapsed {
-    width: calc(90% + 6vh);
+    width: calc(70% - 3vh);
 
     display: block;
 }
