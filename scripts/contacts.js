@@ -43,7 +43,6 @@ dataRef2.on('value', (snapshot) => {
     allContacts = data;
 
     loadContacts();
-    window.location.reload();
 });
 
 let contactVar, contactVar2;
