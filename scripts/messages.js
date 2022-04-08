@@ -204,12 +204,12 @@ function loadChat(targetID, deleted, ids, images, messagesARRAY, names, reaction
 
     document.querySelector(".messages").scrollTop = document.querySelector(".messages").scrollHeight - document.querySelector(".messages").clientHeight
 
-    // var allInfos = document.querySelectorAll(".messageInfo");
-    // for (i = 0; i < allInfos.length; i++) {
-    //     allInfos[i].addEventListener("click", function () {
-    //         document.getElementById("popup" + this.id).style.display = "block";
-    //     });
-    // }
+    var allInfos = document.querySelectorAll(".messageInfo");
+    for (i = 0; i < allInfos.length; i++) {
+        allInfos[i].addEventListener("click", function () {
+            document.getElementById("popup" + this.id).style.display = "block";
+        });
+    }
 
     var allInfosUser = document.querySelectorAll(".messageInfoUser");
     for (i = 0; i < allInfosUser.length; i++) {
