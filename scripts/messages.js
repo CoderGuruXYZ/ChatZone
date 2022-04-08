@@ -31,6 +31,8 @@ dataRef.on('value', (snapshot) => {
     const data = snapshot.val();
     chats = data;
 
+    var chatID = (parseInt(entityObj.id.slice(0, 15)) + parseInt(document.querySelector(".topBar").id.slice(0, 15))).toString();
+
     loadChat(document.querySelector(".topBar").id,
         Object.values(chats[chatID].deleted),
         Object.values(chats[chatID].ids),
