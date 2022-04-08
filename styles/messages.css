@@ -155,7 +155,7 @@
 }
 
 .chat.collapsed {
-    width: calc(85%);
+    width: calc(90%);
 
     display: block;
 }
