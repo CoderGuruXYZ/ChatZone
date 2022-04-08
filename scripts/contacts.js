@@ -41,6 +41,9 @@ var dataRef2 = firebase.database().ref('contacts');
 dataRef2.on('value', (snapshot) => {
     const data = snapshot.val();
     allContacts = data;
+
+    loadContacts();
+    window.location.reload();
 });
 
 let contactVar, contactVar2;
