@@ -15,7 +15,9 @@
 }
 
 .dmWindow.collapsed {
-    width: calc(100% - 75px)
+    width: calc(100% - 75px);
+
+    display: flex;
 }
 
 .dms {
@@ -31,6 +33,8 @@
 
 .dms.collapsed {
     width: 30%;
+
+    display: block;
 }
 
 .dmTitle {
@@ -136,7 +140,7 @@
 }
 
 .chat {
-    width: calc(65% - 3vh);
+    width: calc(65%);
     height: 100%;
 
     max-width: 60%;
@@ -151,7 +155,9 @@
 }
 
 .chat.collapsed {
-    width: calc(85% - 3vh);
+    width: calc(85%);
+
+    display: block;
 }
 
 .topBar {
