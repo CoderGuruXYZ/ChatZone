@@ -29,7 +29,7 @@
     background-color: rgb(35, 35, 35);
 }
 
-.dmWindow.collapsed .dms {
+.dms.collapsed {
     width: 30%;
 }
 
@@ -150,7 +150,7 @@
     position: relative;
 }
 
-.dmWindow.collapsed .chat {
+.chat.collapsed {
     width: calc(85% - 3vh);
 }
 

@@ -89,6 +89,8 @@ function collapseNav() {
 
     if(window.location.href.includes("messages")) {
         $(".dmWindow").toggleClass("collapsed");
+        $(".dms").toggleClass("collapsed");
+        $(".chat").toggleClass("collapsed");
     }
 }
 
