@@ -374,7 +374,7 @@ document.getElementById("userText").oninput = function () {
 var typing;
 var dataRef4 = firebase.database().ref('typing/');
 dataRef4.on('value', (snapshot) => {
-    if (allContacts != null) {
+    if (allContacts != null && allContacts[entityObj.id] != null) {
         const data = snapshot.val();
         typing = data;
         var isTargetTyping = typing[document.querySelector(".topBar").id].isTyping;
