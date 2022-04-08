@@ -28,6 +28,9 @@ dataRef.once('value', (snapshot) => {
     }
 });
 dataRef.on('value', (snapshot) => {
+    const data = snapshot.val();
+    chats = data;
+
     loadChat(document.querySelector(".topBar").id,
         Object.values(chats[chatID].deleted),
         Object.values(chats[chatID].ids),
