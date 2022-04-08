@@ -89,11 +89,13 @@ dataRef2.on('value', (snapshot) => {
 
                     var targetObj = users[parts[1]];
 
+                    console.log(allContacts);
+
                     var entityContacts = allContacts[entityObj.id];
                     var targetContacts = allContacts[targetObj.id];
 
-                    allContacts[entityObj.id]['contacts'].splice(entityContacts['contacts'].indexOf(targetObj.id));
-                    allContacts[targetObj.id]['contacts'].splice(targetContacts['contacts'].indexOf(entityObj.id));
+                    allContacts[entityObj.id].contacts.splice(entityContacts['contacts'].indexOf(targetObj.id));
+                    allContacts[targetObj.id].contacts.splice(targetContacts['contacts'].indexOf(entityObj.id));
 
                     if (entityContacts.length < 1) {
                         $(".messages").html("");
