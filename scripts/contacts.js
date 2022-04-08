@@ -100,7 +100,7 @@ function addNewContact() {
 
         var verif2 = true;
 
-        if(allContacts != null) {
+        if(allContacts != null && allContacts[entityObj.id] != null) {
             for(i = 0; i < (allContacts[entityObj.id].contacts).length; i++) {
                 if(users[allContacts[entityObj.id].contacts[i]].email == test) {
                     verif2 = false;
