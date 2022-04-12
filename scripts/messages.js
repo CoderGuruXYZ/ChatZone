@@ -15,7 +15,7 @@ dataRef.once('value', (snapshot) => {
 
     var chatID = (parseInt(entityObj.id.slice(0, 15)) + parseInt(document.querySelector(".topBar").id.slice(0, 15))).toString();
 
-    if (chats[chatID].empty != "") {
+    if (chats[chatID].empty == null || chats[chatID].empty != "") {
         loadChat(document.querySelector(".topBar").id,
             Object.values(chats[chatID].deleted),
             Object.values(chats[chatID].ids),
